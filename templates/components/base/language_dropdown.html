@@ -1,0 +1,36 @@
+{% load static %}
+{% load i18n %}
+
+<div class="dropdown lang-dropdown">
+    <button class="btn-lang dropdown-toggle lang-dropdown-toggle" id="langDropdown"
+            data-toggle="dropdown">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% get_language_info for LANGUAGE_CODE as lang %}
+
+        {% get_current_language as LANGUAGE %}
+        <img src="{% get_static_prefix %}assets/images/flags/{{ LANGUAGE_CODE }}.png" alt="{{ LANGUAGE_CODE }}"> <span>{{ lang.name_local }}</span>
+
+    </button>
+    <div class="dropdown-menu" aria-labelledby="langDropdown">
+        <form action="{% url 'set_language' %}" method="post" id="setLanguageForm">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language" hidden id="language_field" class="d-none">
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+            {% for language in languages %}
+            <a class="dropdown-item" href="#" onClick="setLanguage('{{ language.code }}')">
+                <img src="{% get_static_prefix %}assets/images/flags/{{ language.code }}.png" alt="tr"> <span>{{ language.name_local }}</span>
+            </a>
+            {% endfor %}
+{#            <a class="dropdown-item" href="#" onClick="setLanguage('en')">#}
+{#                <img src="{% static 'assets/images/flags/en.png' %}" alt="en"> <span>English</span>#}
+{#            </a>#}
+        </form>
+    </div>
+</div>

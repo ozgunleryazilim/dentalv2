@@ -121,11 +121,15 @@ MEDIA_URL = '/media/'
 
 LOCALE_PATHS = (BASE_DIR / 'locale/',)
 
-LANGUAGE_CODE = env('LANGUAGE_CODE', default="tr")
+LANGUAGE_CODE = env('LANGUAGE_CODE', default="en-US")
 
 LANGUAGES = (
-    ('tr', _('Türkçe')),
+    ('tr', _('Turkish')),
     ('en', _('English')),
+    ('de', _('German')),
+    ('it', _('Italian')),
+    ('es', _('Spanish')),
+    ('ru', _('Russian')),
 )
 
 LANGUAGE_SESSION_KEY = 'language'

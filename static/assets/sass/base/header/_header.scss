@@ -22,9 +22,10 @@
 
 .header-top {
     height: 48px;
+	background-color: $primary-color;
     a {
         font-size: 1.4rem;
-        color: $body-text-color;
+        color: $white-color;
     }
     i {
         color: #b2dded;
@@ -73,7 +74,7 @@
 	right: 0;
     top: 48px;
     height: 124px;
-    background-color: transparent;
+    background-color: white;
     padding: 3rem 6.4rem;
     z-index: 10;
     .header-left {

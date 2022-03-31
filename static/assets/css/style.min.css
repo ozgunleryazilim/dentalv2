@@ -3973,10 +3973,11 @@ sup {
 
 .header-top {
   height: 48px;
+  background-color: #263779;
 }
 .header-top a {
   font-size: 1.4rem;
-  color: #5e616c;
+  color: #ffffff;
 }
 .header-top i {
   color: #b2dded;
@@ -4023,7 +4024,7 @@ sup {
   right: 0;
   top: 48px;
   height: 124px;
-  background-color: transparent;
+  background-color: white;
   padding: 3rem 6.4rem;
   z-index: 10;
 }
@@ -5603,6 +5604,21 @@ body:not(.loaded) * {
 .loaded .loading-overlay {
   opacity: 0;
   visibility: hidden;
+}
+
+.btn-lang {
+  display: inline-flex;
+  color: #5e616c;
+  background: transparent;
+  border: none;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 20px;
+  cursor: pointer;
+}
+.btn-lang span {
+  margin: 0 10px;
 }
 
 .btn {

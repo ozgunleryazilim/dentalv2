@@ -1,0 +1,58 @@
+{% load static i18n %}
+
+{% url 'home' as home_url %}
+{% url 'home' as about_url %}
+{% url 'home' as howitworks_url %}
+{% url 'home' as beforeafter_url %}
+{% url 'home' as blog_url %}
+{% url 'home' as contact_url %}
+{% url 'home' as book_appointment_url %}
+
+<div class="header-middle sticky-header">
+    <div class="header-left">
+        <a href="{{ home_url }}" class="logo">
+            <h1 class="mb-0">
+                <img src="{% static 'assets/images/logo.png' %}" alt="Dental Bosphorus Logo" width="185" height="48">
+            </h1>
+        </a>
+    </div>
+    <div class="header-right">
+        <button class="mobile-menu-toggler">
+            <span class="sr-only">Toggle mobile menu</span>
+            <i class="fal fa-bars"></i>
+        </button>
+        <nav class="main-nav ls-20">
+            <ul class="menu sf-arrows">
+                <li>
+                    <a href="{{ about_url }}">{% trans "About us" %}</a>
+                </li>
+                <li>
+                    <a href="#" class="sf-with-ul">{% trans "Services" %} <i class="fas fa-caret-down"></i></a>
+                    <ul class="sub-menu">
+                        <li><a href="#"><i class="fas fa-angle-right"></i>About us</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{{ howitworks_url }}">{% trans "How it works" %}</a>
+                </li>
+                <li>
+                    <a href="{{ beforeafter_url }}">{% trans "Before & After" %}</a>
+                </li>
+                <li>
+                    <a href="{{ blog_url }}">{% trans "Blog" %}</a>
+                </li>
+                <li>
+                    <a href="{{ contact_url }}">{% trans "Contact" %}</a>
+                </li>
+            </ul><!-- End .menu -->
+        </nav><!-- End .main-nav -->
+
+        <a href="{{ book_appointment_url }}" class="btn btn-sm btn-primary-color ls-0">
+            <span>{% trans "Book an Appointment" %}</span>
+        </a>
+
+        {% include "components/base/language_dropdown.html" %}
+
+    </div>
+</div>

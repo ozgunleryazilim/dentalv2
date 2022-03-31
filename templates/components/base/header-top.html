@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<div class="header-top">
+    <div class="container-fluid">
+        <div class="header-left">
+            <ul class="top-menu top-link-menu">
+                <li>
+                    <a href="tel:{{ global_preferences.page__phone_number|cut:' ' }}" class="link-phone">
+                        <i class="fas fa-phone"></i>
+                        {{ global_preferences.page__phone_number }}
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:{{ global_preferences.page__email_address }}" class="link-email">
+                        <i class="fas fa-envelope-open"></i>
+                        {{ global_preferences.page__email_address }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <ul class="top-menu">
+                <li>
+                    <a href="{{ global_preferences.page__instagram_link }}" class="social-link">
+                        <i class="fab fa-instagram"></i> {% trans "Instagram" %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ global_preferences.page__facebook_link }}" class="social-link">
+                        <i class="fab fa-facebook"></i> {% trans "Facebook" %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ global_preferences.page__youtube_link }}" class="social-link">
+                        <i class="fab fa-youtube"></i> {% trans "Youtube" %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
