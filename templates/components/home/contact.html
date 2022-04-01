@@ -1,0 +1,72 @@
+{% load static i18n %}
+
+{# TODO: book_appointment_url guncellenecek... #}
+{% url 'home' as book_appointment_url %}
+<div class="type-section bg-section bg-section-8">
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 offset-lg-0 col-md-8 col-sm-8 offset-sm-2 col-10 offset-1">
+                    <div class="banner-content">
+                        <div class="banner-content-wrapper">
+                            <div class="banner-heading">
+                                <h2 class="banner-title">
+                                    {% trans "How can we help you?" %}
+                                </h2>
+                                <p class="banner-info">
+                                    {% blocktrans trimmed %}
+                                        For your dental health or aesthetic requests, it is enough to
+                                        reach us through the most comfortable communication channel
+                                        for you. Our dental aesthetics and health units will get back to
+                                        you as soon as possible to inform you about the service you
+                                        have requested
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="icon-boxes">
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box icon-box-1 icon-box-big text-center">
+                                    <figure class="bg-secondary-color">
+                                        <i class="fal fa-user-circle"></i>
+                                    </figure>
+                                    <div class="icon-box-content">
+                                        <h4 class="box-title">{% trans "Call Us" %}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box icon-box-1 icon-box-big text-center">
+                                    <figure class="bg-primary-color">
+                                        <i class="fal fa-baby-carriage"></i>
+                                    </figure>
+                                    <div class="icon-box-content">
+                                        <h4 class="box-title">{% trans "Write on Facebook" %}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box icon-box-1 icon-box-big text-center">
+                                    <figure class="bg-third-color">
+                                        <i class="fal fa-users"></i>
+                                    </figure>
+                                    <div class="icon-box-content">
+                                        <h4 class="box-title">{% trans "Write on Whatsapp" %}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-actions">
+                            <a href="{{ book_appointment_url }}" class="btn btn-secondary-color btn-md">
+                                <span>{% trans "Book an Appointment" %}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foreground-img">
+        <img src="{% static 'assets/images/demos/demo-2/banner/banner-big-fore.png' %}" alt="image">
+    </div>
+</div>
