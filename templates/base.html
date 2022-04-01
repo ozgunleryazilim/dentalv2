@@ -53,38 +53,9 @@
 <!-- Main JS File -->
 <script src="{% static 'assets/js/main.min.js' %}"></script>
 
-<script>
-    function setLanguage(language) {
-        let form = document.getElementById('setLanguageForm');
-        let field = document.getElementById('language_field');
+<script src="{% static 'assets/js/set_language.js' %}"></script>
 
-        field.value = language;
-        form.submit();
-    }
-
-    $(document).ready(function () {
-        $("#before-after-slider").owlCarousel({
-            loop: true,
-            margin: 10,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: true
-                },
-                600: {
-                    items: 3,
-                    nav: false
-                },
-                1000: {
-                    items: 4,
-                    nav: true,
-                }
-            }
-        });
-    });
-
-</script>
+<script src="{% static 'assets/js/site_carousels.js' %}"></script>
 
 </body>
 </html>
