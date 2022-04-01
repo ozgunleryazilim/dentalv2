@@ -360,7 +360,11 @@
         }
     }
 }
-
+.select-input{
+    select{
+        appearance: none;
+    }
+}
 // datepicker
 .input-group.input-calendar-light,.input-group.input-calendar-dark {
     i {

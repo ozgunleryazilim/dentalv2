@@ -124,8 +124,8 @@ LOCALE_PATHS = (BASE_DIR / 'locale/',)
 LANGUAGE_CODE = env('LANGUAGE_CODE', default="en-US")
 
 LANGUAGES = (
-    ('tr', _('Turkish')),
     ('en', _('English')),
+    ('tr', _('Turkish')),
     ('de', _('German')),
     ('it', _('Italian')),
     ('es', _('Spanish')),

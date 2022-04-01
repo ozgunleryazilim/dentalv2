@@ -1,0 +1,46 @@
+{% load i18n %}
+
+<form class="book-form book-form-4 w-100">
+    <h4 class="sub-title ls-n-20 text-center">{% trans "Book Appointment" %}</h4>
+    <div class="input-group input-light">
+        <h6 class="input-title">{% trans "Name & Surname" %}</h6>
+        <input type="text" class="form-control" name="full_name" placeholder="{% trans 'Full name & surname' %}">
+    </div>
+    <div class="input-group input-light input-calendar-light">
+        <h6 class="input-title">{% trans "Email" %}</h6>
+        <input type="email" name="email" class="form-control" placeholder="example@gmail.com">
+        <i class="far fa-envelope"></i>
+    </div>
+    <div class="input-group input-light input-calendar-light select-input">
+        <h6 class="input-title">{% trans "Treatment Selection" %}</h6>
+        <select name="treatment_selection" class="form-control" id="">
+            <option value="">{% trans "Please select" %}</option>
+        </select>
+        <i class="far fa-angle-down"></i>
+    </div>
+    <div class="input-group input-light input-calendar-light">
+        <h6 class="input-title">{% trans "Phone Number with Country Code" %}</h6>
+        <input type="text" name="phone" class="form-control"
+               placeholder="+xx 555 55 55">
+        <i class="far fa-phone-alt"></i>
+    </div>
+
+    {# TODO: Checkbox gorunumu iyilestirilecek... #}
+    <div class="form-group mt-3">
+        <label for="InputKVKK" class="form-check-label">
+            <input type="checkbox" name="contactKvkk" id="InputKVKK" class="form-check-input"
+                   required data-error="{% trans 'GDPR field is required' %}">
+            {% blocktrans trimmed %}
+                Please confirm that you have shared your personal data with Dental Bosphorus within the scope of
+                <a href="#" target="_blank" class="btn-link">GDPR Privacy Policy</a>
+            {% endblocktrans %}
+        </label>
+
+        <div class="help-block with-errors"></div>
+    </div>
+
+
+    <button type="submit" class="btn btn-secondary-color btn-form">
+        <span>{% trans "Send for Free Consulation" %}</span>
+    </button>
+</form>

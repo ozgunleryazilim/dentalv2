@@ -1,0 +1,60 @@
+{% load static i18n %}
+{% load home_slider %}
+
+{# TODO: Change book_appointment_url #}
+{% url 'home' as book_appointment_url %}
+
+{% static "assets/images/demos/demo-4/slide/slide-1-fore.png" as default_slider_image %}
+
+<div class="intro-slider intro-slider-4 owl-carousel owl-theme owl-nav-inside bg-gradient owl-light slide-animate mb-0"
+     data-toggle="owl" data-owl-options='{
+                "dots": false,
+                "nav": false,
+                "touchDrag": false,
+                "mouseDrag": false,
+                "responsive": {
+                    "1200": {
+                        "nav": true,
+                    },
+                }
+            }'>
+    {% get_slider_list as sliders %}
+    {% for slider in sliders %}
+        <div class="banner intro-slide intro-slide-2 bg-section"
+                {% if slider.image %}
+             style="background-image: url('{{ slider.image.url }}');"
+                {% else %}
+             style="background-image: url('{{ default_slider_image }}');"
+                {% endif %}
+        >
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                        <div class="banner-content">
+                            <h2 class="banner-title">
+                                {{ slider.title }}
+                            </h2>
+                            <p class="banner-info">
+                                {{ slider.description|safe }}
+                            </p>
+                            <div class="banner-actions">
+                                <a href="{{ book_appointment_url }}" class="btn btn-secondary-color">
+                                    <span>{% trans "Book an Appointment" %}</span>
+                                </a>
+                                <a href="{{ slider.redirect_url|default:'' }}" class="btn">
+                                    <span>{% trans "Learn More" %}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1 d-lg-inline-flex justify-content-lg-end">
+                        {% include "components/home/slider-form.html" %}
+                    </div>
+                </div>
+            </div>
+            <div class="foreground-img">
+                <img src="{{ default_slider_image }}" alt="Banner-slide">
+            </div>
+        </div>
+    {% endfor %}
+</div>

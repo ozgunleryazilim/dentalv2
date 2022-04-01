@@ -6908,6 +6908,10 @@ body:not(.loaded) * {
   color: #21cdc0;
 }
 
+.select-input select {
+  appearance: none;
+}
+
 .input-group.input-calendar-light i, .input-group.input-calendar-dark i {
   position: absolute;
   right: 2.4rem;
