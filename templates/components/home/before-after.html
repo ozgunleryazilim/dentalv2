@@ -1,0 +1,33 @@
+{% load static i18n %}
+
+{# TODO: Before after url degisecek... #}
+{% url 'home' as beforeafter_url %}
+
+<div class="container step-section">
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="banner-aside banner-aside-switch align-items-lg-start d-md-flex img-right col-lg-12 col-md-8 col-sm-8 col-10">
+            <figure>
+                <img src="{% static 'assets/images/demos/demo-7/banner/aside-1.jpg' %}" class="img-aside"
+                     alt="Banner-aside"
+                     width="470" height="447">
+            </figure>
+            <div class="banner-content">
+                <h3 class="banner-title">{% trans "Discover our clinic and our patients who renew their smile!" %}</h3>
+                <p class="banner-desc">
+                    {% blocktrans trimmed %}
+                        No matter where you are or how busy your life gets, you can talk to one of our many friendly and
+                        knowledgable doctors online at a time that works with your schedule.
+                    {% endblocktrans %}
+                </p>
+                <div class="banner-actions">
+                    <a href="{{ beforeafter_url }}" class="btn btn-primary-color">
+                        <span>{% trans "Discover more" %}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "components/home/before-after-gallery.html" %}
+</div>

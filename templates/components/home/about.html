@@ -1,0 +1,33 @@
+{% load static i18n %}
+
+<div class="container step-section" id="about">
+    <div class="row d-flex justify-content-center">
+        <div class="banner-aside align-items-lg-start col-lg-12 col-md-8 col-sm-8 col-10">
+            <figure class="mr-xl-10 mr-lg-5 mr-0">
+                <img src="{% static 'assets/images/demos/demo-7/banner/aside-1.jpg' %}" class="img-aside"
+                     alt="Banner-aside"
+                     width="470" height="447">
+
+            </figure>
+            <div class="banner-content">
+                <h3 class="banner-title">{% trans "Welcome to" %}<br> {% trans "Dental Bosphorus" %}</h3>
+                <p class="banner-desc">
+                    {% blocktrans trimmed %}
+                        As Dental Bosphorus Oral and Dental Health Center, we
+                        provide service to all our patients at the highest standards,
+                        We provide the best results for you with our fully equipped
+                        and state-of-the-art equipment tracks. With our team of
+                        over 20 years of experience, we are able to successfully
+                        provide all services for oral and dental health
+                    {% endblocktrans %}
+                </p>
+                <p class="banner-desc">
+                    {% blocktrans trimmed %}
+                        Our happiness is your smile. You can contact us at any time
+                        to plan your dental health and aesthetics journey in Turkey
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
