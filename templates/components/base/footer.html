@@ -1,18 +1,36 @@
+{% load static i18n %}
+
+{# TODO: Url degisecek... #}
+{% url 'home' as home_url %}
+{% url 'home' as about_url %}
+{% url 'home' as services_url %}
+{% url 'home' as howitworks_url %}
+{% url 'home' as beforeafter_url %}
+{% url 'home' as blog_url %}
+{% url 'home' as gdpr_url %}
+{% url 'home' as privacy_url %}
 
 <footer class="footer bg-primary-color">
     <div class="container">
         <div class="footer-top">
             <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-lg-6 col-sm-7 col-10">
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo-sm.png" alt="Caremed Logo" width="185" height="48">
+                    <a href="{{ home_url }}" class="logo">
+                        <img src="{% static 'assets/images/logo-sm.png' %}" alt="Dental Bosphorus"
+                             width="185" height="48">
                     </a>
                 </div>
                 <div class="col-lg-6 col-sm-7 col-10 d-lg-flex justify-content-lg-end">
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i><span>Twitter</span></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i><span>Facebook</span></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i><span>Youtube</span></a>
+                        <a href="{{ global_preferences.page__instagram_link }}" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i><span>{% trans "Instagram" %}</span>
+                        </a>
+                        <a href="{{ global_preferences.page__facebook_link }}" class="social-link" target="_blank">
+                            <i class="fab fa-facebook"></i><span>{% trans "Facebook" %}</span>
+                        </a>
+                        <a href="{{ global_preferences.page__youtube_link }}" class="social-link" target="_blank">
+                            <i class="fab fa-youtube"></i><span>{% trans "Youtube" %}</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -22,20 +40,23 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-3 col-sm-7 col-10">
                         <div class="info-box">
-                            <h6 class="info-title">Company</h6>
+                            <h6 class="info-title">{% trans "Site Map" %}</h6>
                             <ul class="info-list">
-                                <li><a href="#" class="info-link">About</a></li>
-                                <li><a href="#" class="info-link">Our Doctors</a></li>
-                                <li><a href="#" class="info-link">Latest Blog</a></li>
-                                <li><a href="#" class="info-link">Careers</a></li>
-                                <li><a href="#" class="info-link">Contact</a></li>
+                                <li><a href="{{ about_url }}" class="info-link">{% trans "About" %}</a></li>
+                                <li><a href="{{ services_url }}" class="info-link">{% trans "Services" %}</a></li>
+                                <li><a href="{{ howitworks_url }}" class="info-link">{% trans "How it works?" %}</a>
+                                </li>
+                                <li><a href="{{ beforeafter_url }}" class="info-link">{% trans "Before & After" %}</a>
+                                </li>
+                                <li><a href="{{ blog_url }}" class="info-link">{% trans "Blog" %}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-7 col-10">
                         <div class="info-box">
-                            <h6 class="info-title">Support</h6>
+                            <h6 class="info-title">{% trans "Services" %}</h6>
                             <ul class="info-list">
+                                {# TODO: Services kategorileri eklenecek... #}
                                 <li><a href="#" class="info-link">Reviews</a></li>
                                 <li><a href="#" class="info-link">FAQs</a></li>
                                 <li><a href="#" class="info-link">Help Center</a></li>
@@ -45,22 +66,19 @@
                     </div>
                     <div class="col-lg-3 col-sm-7 col-10">
                         <div class="info-box">
-                            <h6 class="info-title">Legal</h6>
+                            <h6 class="info-title">{% trans "Privacy & GDPR" %}</h6>
                             <ul class="info-list">
-                                <li><a href="#" class="info-link">Term of use</a></li>
-                                <li><a href="#" class="info-link">Code of Conduct</a></li>
-                                <li><a href="#" class="info-link">Privacy Policy</a></li>
+                                <li><a href="{{ gdpr_url }}" class="info-link">{% trans "GDPR" %}</a></li>
+                                <li><a href="{{ privacy_url }}" class="info-link">{% trans "Privacy Policy" %}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-7 col-10">
                         <div class="info-box">
-                            <h6 class="info-title">Company</h6>
-                            <form class="input-group input-footer">
-                                <input type="email" class="form-control" placeholder="Email address" required>
-                                <button type="submit" class="form-action"><i class="fas fa-check-circle"></i></button>
-                            </form>
-                            <p>Unsubscribe anytime.</p>
+                            <h6 class="info-title">{% trans "Dental Bosphorus on Map" %}</h6>
+                            {# TODO: Map eklenecek... #}
+                            <p></p>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -69,7 +87,7 @@
         <div class="footer-bottom">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-12 col-sm-7 col-10">
-                    <p>© GFXPARTNER</p>
+                    <p>Site by Black Cap Media</p>
                 </div>
             </div>
         </div>
