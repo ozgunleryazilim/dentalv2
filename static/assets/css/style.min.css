@@ -5798,6 +5798,9 @@ body:not(.loaded) * {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
+.btn-link.btn-link-primary a, .btn-link.btn-link-primary i {
+  color: #263779 !important;
+}
 
 .btn-video {
   display: flex;
