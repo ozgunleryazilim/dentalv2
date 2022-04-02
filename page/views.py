@@ -11,3 +11,11 @@ class AboutPage(TemplateView):
 
 class ServicesPage(TemplateView):
     template_name = "page/services.html"
+
+
+class ServicesDetailPage(TemplateView):
+    template_name = "page/services-detail.html"
+
+
+class HowItWorksPage(TemplateView):
+    template_name = "page/how-it-works.html"
