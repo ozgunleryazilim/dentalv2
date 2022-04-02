@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block content %}
+
+    {% include "components/banner.html" %}
+
+    <div class="container about-primary-section">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-1 order-2">
+                <div class="banner-content">
+                    <h3 class="banner-title">{% trans "A platform that truly transforms healthcare in United States." %}</h3>
+                    <p>
+                        No matter where you are or how busy your life gets, you can
+                        talk to one of our many friendly and knowledgable doctors
+                        online at a time that works with your schedule.
+                    </p>
+                    <p>
+                        Day dry face darkness were divide whose replenish won't the and
+                        shall man deep evening days open moving evening have man great
+                        gathering fruit tree grass gathering us third grass made yielding
+                        saying earth to creepeth creepth she'd air female appear was
+                        brought signs likeness thing.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-2 order-1 d-lg-inline-flex justify-content-lg-end">
+                <figure>
+                    <img src="{% static 'assets/images/banner/aside-1.jpg' %}" class="img-aside rounded-img"
+                         alt="Banner-aside"
+                         width="470" height="447">
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <div class="container about-primary-section">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-1 d-lg-inline-flex">
+                <figure>
+                    <img src="{% static 'assets/images/banner/aside-1.jpg' %}" class="img-aside rounded-img"
+                         alt="Banner-aside"
+                         width="470" height="447">
+                </figure>
+            </div>
+            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-1 order-2">
+                <div class="banner-content">
+                    <h3 class="banner-title">{% trans "A platform that truly transforms healthcare in United States." %}</h3>
+                    <p>
+                        No matter where you are or how busy your life gets, you can
+                        talk to one of our many friendly and knowledgable doctors
+                        online at a time that works with your schedule.
+                    </p>
+                    <p>
+                        Day dry face darkness were divide whose replenish won't the and
+                        shall man deep evening days open moving evening have man great
+                        gathering fruit tree grass gathering us third grass made yielding
+                        saying earth to creepeth creepth she'd air female appear was
+                        brought signs likeness thing.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% include "components/home/before-after.html" %}
+
+    {% include "components/home/contact.html" %}
+
+{% endblock %}
