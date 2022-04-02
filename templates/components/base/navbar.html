@@ -2,6 +2,7 @@
 
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
+{% url 'services' as services_url %}
 {% url 'home' as howitworks_url %}
 {% url 'home' as beforeafter_url %}
 {% url 'home' as blog_url %}
@@ -27,7 +28,7 @@
                     <a href="{{ about_url }}">{% trans "About us" %}</a>
                 </li>
                 <li>
-                    <a href="#" class="sf-with-ul">{% trans "Services" %} <i class="fas fa-caret-down"></i></a>
+                    <a href="{{ services_url }}" class="sf-with-ul">{% trans "Services" %} <i class="fas fa-caret-down"></i></a>
                     <ul class="sub-menu">
                         <li><a href="#"><i class="fas fa-angle-right"></i>About us</a></li>
                     </ul>

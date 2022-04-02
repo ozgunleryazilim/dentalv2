@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block content %}
+
+    {% include "components/banner.html" %}
+
+    <div class="container blog-masonry-section padding-small">
+        <div class="grid row">
+            <div class="grid-sizer col-1"></div>
+
+            {% include "components/services/service-item.html" %}
+            {% include "components/services/service-item.html" %}
+            {% include "components/services/service-item.html" %}
+            {% include "components/services/service-item.html" %}
+            {% include "components/services/service-item.html" %}
+            {% include "components/services/service-item.html" %}
+            {% include "components/services/service-item.html" %}
+        </div>
+
+        {% include "components/pagination.html" %}
+    </div>
+
+    {% include "components/services/services-form.html" %}
+
+    {% include "components/home/contact.html" %}
+
+{% endblock %}
