@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from parler.admin import TranslatableAdmin
-from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory)
+from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory, BeforeAfterImage)
 
 admin.site.register(Keywords, TranslatableAdmin)
 
@@ -34,3 +34,8 @@ class ServiceCategoryAdmin(TranslatableAdmin):
     list_editable = ('icon', 'in_home')
     list_filter = ('icon', 'in_home')
     search_fields = ('name',)
+
+
+@admin.register(BeforeAfterImage)
+class BeforeAfterImageAdmin(admin.ModelAdmin):
+    pass

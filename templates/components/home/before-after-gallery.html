@@ -1,13 +1,14 @@
 {% load static %}
+{% load before_after %}
 
-{# TODO: Before after gorselleri guncellenecek... #}
-<!-- Set up your HTML -->
 <div id="before-after-gallery" class="my-5">
     <div id="before-after-slider" class="owl-carousel owl-theme">
-
-        <div class="item">
-            <img src="{% static 'assets/images/blog/blog1-8.jpg' %}" alt="gallery img" class="img-fluid w-100"/>
-        </div>
+        {% get_before_after_images as ba_images %}
+        {% for ba_image in ba_images %}
+            <div class="item">
+                <img src="{{ ba_image.image.url }}" alt="{{ ba_image.name|default:'' }}" class="img-fluid w-100"/>
+            </div>
+        {% endfor %}
 
     </div>
 </div>
