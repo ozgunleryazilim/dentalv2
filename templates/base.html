@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <title>Caremed - Home 4</title>
-    <meta name="keywords" content="Caremed HTML5 Responsive Template Medicine COVID-19 Corona Hospital"/>
-    <meta name="description" content="Caremed - Hospital HTML5 Responsive Template">
+    {% block meta %}
+        {% include "components/base/meta.html" %}
+    {% endblock %}
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/images/favicon.ico' %}">

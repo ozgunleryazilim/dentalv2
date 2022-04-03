@@ -1,7 +1,7 @@
 {% load static i18n %}
 
 {# TODO: Change book_appointment_url #}
-{% url 'home' as book_appointment_url %}
+{% url 'home' as contact_url %}
 
 {% static "assets/images/demos/demo-4/slide/slide-1.jpg" as default_slider_image %}
 
@@ -19,8 +19,8 @@
             }'>
 
     <div class="banner intro-slide intro-slide-2 bg-section"
-            {% if slider.image %}
-         style="background-image: url('{{ slider.image.url }}');"
+            {% if obj.banner_image %}
+         style="background-image: url('{{ obj.banner_image.url }}');"
             {% else %}
          style="background-image: url('{{ default_slider_image }}');"
             {% endif %}
@@ -30,15 +30,14 @@
                 <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="banner-content">
                         <h2 class="banner-title">
-                            About us
+                            {{ obj.banner_title|default:"" }}
                         </h2>
                         <p class="banner-info">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum autem dolore mollitia
-                            laborum minus dolorum explicabo iure ipsum? Reprehenderit, rem.
+                            {{ obj.banner_description|safe|default:"" }}
                         </p>
                         <div class="banner-actions">
-                            <a href="{{ book_appointment_url }}" class="btn btn-sm btn-primary-color">
-                                <span>{% trans "Book an Appointment" %}</span>
+                            <a href="{{ contact_url }}" class="btn btn-sm btn-primary-color">
+                                <span>{% trans "Contact us" %}</span>
                             </a>
                         </div>
                     </div>
@@ -47,7 +46,11 @@
             </div>
         </div>
         <div class="foreground-img">
-            <img src="{{ default_slider_image }}" alt="Banner-slide">
+            {% if obj.banner_image %}
+                <img src="{{ obj.banner_image.url }}" alt="{{ obj.banner_title }}">
+            {% else %}
+                <img src="{{ default_slider_image }}" alt="{{ obj.banner_title }}">
+            {% endif %}
         </div>
     </div>
 </div>

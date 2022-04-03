@@ -1,68 +1,65 @@
 {% extends "base.html" %}
 {% load static i18n %}
+{% load aboutpage %}
+
+{% block meta %}
+    {% get_about_obj as about %}
+    {% include "components/base/meta.html" with obj=about %}
+{% endblock %}
 
 {% block content %}
 
-    {% include "components/banner.html" %}
+    {% get_about_obj as about %}
+    {% include "components/banner.html" with obj=about %}
 
-    <div class="container about-primary-section">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-1 order-2">
-                <div class="banner-content">
-                    <h3 class="banner-title">{% trans "A platform that truly transforms healthcare in United States." %}</h3>
-                    <p>
-                        No matter where you are or how busy your life gets, you can
-                        talk to one of our many friendly and knowledgable doctors
-                        online at a time that works with your schedule.
-                    </p>
-                    <p>
-                        Day dry face darkness were divide whose replenish won't the and
-                        shall man deep evening days open moving evening have man great
-                        gathering fruit tree grass gathering us third grass made yielding
-                        saying earth to creepeth creepth she'd air female appear was
-                        brought signs likeness thing.
-                    </p>
+    {% if about.content_title1 or about.content_body1 %}
+        <div class="container about-primary-section">
+            <div class="row">
+                <div class="col offset-lg-0 offset-sm-2 offset-1 order-lg-1 order-2">
+                    <div class="banner-content">
+                        <h3 class="banner-title">{{ about.content_title1|default:"" }}</h3>
+                        <p>
+                            {{ about.content_body1|safe|default:"" }}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-2 order-1 d-lg-inline-flex justify-content-lg-end">
-                <figure>
-                    <img src="{% static 'assets/images/banner/aside-1.jpg' %}" class="img-aside rounded-img"
-                         alt="Banner-aside"
-                         width="470" height="447">
-                </figure>
+                {% if about.content_image1 %}
+                    <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-2 order-1 d-lg-inline-flex justify-content-lg-end">
+                        <figure>
+                            <img src="{{ about.content_image1.url }}" class="img-aside rounded-img"
+                                 alt="{{ about.content_title1|default:'' }}"
+                                 width="470" height="447">
+                        </figure>
+                    </div>
+                {% endif %}
             </div>
         </div>
-    </div>
+    {% endif %}
 
-    <div class="container about-primary-section">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-1 d-lg-inline-flex">
-                <figure>
-                    <img src="{% static 'assets/images/banner/aside-1.jpg' %}" class="img-aside rounded-img"
-                         alt="Banner-aside"
-                         width="470" height="447">
-                </figure>
-            </div>
-            <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-1 order-2">
-                <div class="banner-content">
-                    <h3 class="banner-title">{% trans "A platform that truly transforms healthcare in United States." %}</h3>
-                    <p>
-                        No matter where you are or how busy your life gets, you can
-                        talk to one of our many friendly and knowledgable doctors
-                        online at a time that works with your schedule.
-                    </p>
-                    <p>
-                        Day dry face darkness were divide whose replenish won't the and
-                        shall man deep evening days open moving evening have man great
-                        gathering fruit tree grass gathering us third grass made yielding
-                        saying earth to creepeth creepth she'd air female appear was
-                        brought signs likeness thing.
-                    </p>
+    {% if about.content_title2 or about.content_body2 %}
+        <div class="container about-primary-section">
+            <div class="row">
+                {% if about.content_image2 %}
+                    <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-1 d-lg-inline-flex">
+                        <figure>
+                            <img src="{{ about.content_image2.url }}" class="img-aside rounded-img"
+                                 alt="{{ about.content_title2|default:'' }}"
+                                 width="470" height="447">
+                        </figure>
+                    </div>
+                {% endif %}
+                <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1 order-lg-1 order-2">
+                    <div class="banner-content">
+                        <h3 class="banner-title">{{ about.content_title2|default:"" }}</h3>
+                        <p>
+                            {{ about.content_body2|safe|default:"" }}
+                        </p>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     {% include "components/home/before-after.html" %}
 

@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load homepage %}
+
+{% block meta %}
+    {% get_home_obj as obj %}
+    {% include "components/base/meta.html" %}
+{% endblock %}
 
 {% block content %}
 

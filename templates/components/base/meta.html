@@ -1,0 +1,11 @@
+{% load i18n %}
+{% trans "Dental Bosphorus" as default_title %}
+
+<meta name="description" content="{{ obj.meta_description|default_if_none:'' }}">
+<meta name="keywords"
+      content="{% for kw in obj.meta_keywords.all %}{{ kw.name }}{% if not forloop.last %},{% endif %}{% endfor %}">
+{% if obj.seo_title %}
+    <title>{{ obj.seo_title|default:default_title|default_if_none:default_title }}</title>
+{% else %}
+    <title>{{ seo_title|default:default_title|default_if_none:default_title }}</title>
+{% endif %}
