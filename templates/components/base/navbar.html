@@ -1,4 +1,5 @@
 {% load static i18n %}
+{% load services %}
 
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
@@ -13,7 +14,8 @@
     <div class="header-left">
         <a href="{{ home_url }}" class="logo">
             <h1 class="mb-0">
-                <img src="{% static 'assets/images/logo-dark.png' %}" alt="Dental Bosphorus Logo" width="185" height="48">
+                <img src="{% static 'assets/images/logo-dark.png' %}" alt="Dental Bosphorus Logo" width="185"
+                     height="48">
             </h1>
         </a>
     </div>
@@ -28,9 +30,19 @@
                     <a href="{{ about_url }}">{% trans "About us" %}</a>
                 </li>
                 <li>
-                    <a href="{{ services_url }}" class="sf-with-ul">{% trans "Services" %} <i class="fas fa-caret-down"></i></a>
+                    <a href="{{ services_url }}" class="sf-with-ul">{% trans "Services" %} <i
+                            class="fas fa-caret-down"></i></a>
                     <ul class="sub-menu">
-                        <li><a href="#"><i class="fas fa-angle-right"></i>About us</a></li>
+                        {% get_service_category_list as service_categories %}
+                        {% for service_category in service_categories %}
+                            {# TODO: Services url degisecek... #}
+                            {% url 'services' as service_category_url %}
+                            <li>
+                                <a href="{{ service_category_url }}">
+                                    <i class="fas fa-angle-right"></i>{{ service_category.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </li>
 

@@ -12,21 +12,21 @@ class HomePageSeo(TranslatableModel, SEOStarterModel):
     )
 
     class Meta:
-        verbose_name = _("Anasayfa SEO")
-        verbose_name_plural = _("Anasayfa SEO")
+        verbose_name = _("Home Page SEO")
+        verbose_name_plural = _("Home Page SEO")
 
 
 class HomeSlider(TranslatableModel, TimestampStarterModel):
     translations = TranslatedFields(
-        title=models.CharField(_("Başlık"), max_length=200),
-        description=models.TextField(_("Açıklama"), blank=True, null=True),
-        redirect_url=models.CharField(_("Yönlendirilecek URL"), max_length=200, blank=True, null=True)
+        title=models.CharField(_("Title"), max_length=200),
+        description=models.TextField(_("Description"), blank=True, null=True),
+        redirect_url=models.CharField(_("Redirect URL"), max_length=200, blank=True, null=True)
     )
-    image = models.ImageField(verbose_name=_("Resim"), upload_to="homeslider", blank=True, null=True)
+    image = models.ImageField(verbose_name=_("Image"), upload_to="homeslider", blank=True, null=True)
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = _("Anasayfa Slider")
-        verbose_name_plural = _("Anasayfa Slider")
+        verbose_name = _("Home Slider")
+        verbose_name_plural = _("Home Sliders")
