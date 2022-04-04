@@ -1,9 +1,13 @@
 {% load static %}
+
+{% url "services_detail" slug=service.slug as service_detail_url %}
 <div class="grid-item col-lg-4 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
     <div class="post-box">
         <figure>
-            <a href="blog-detailed.html">
-                <img src="{% static 'assets/images/blog/blog1-1.jpg' %}" alt="Blog" width="370" height="257">
+            <a href="{{ service_detail_url }}">
+                {% if service.image %}
+                <img src="{{ service.image.url }}" alt="{{ service.banner_title }}" width="370" height="257">
+                {% endif %}
                 <div class="hover">
                     <div class="circle">
                         <i class="fas fa-link"></i>
@@ -11,14 +15,10 @@
                 </div>
             </a>
         </figure>
-        <div class="box-content">
-            <h4 class="box-title"><a href="blog-detailed.html">Can you get a diflucan prescription
-                online?</a></h4>
-            <p class="post-date"><a href="#">Dec 13, 2020</a><span class="text-divider">|</span><a
-                    href="blog-detailed.html">2 Comments</a></p>
+        <div class="box-content bg-light">
+            <h4 class="box-title"><a href="{{ service_detail_url }}">{{ service.banner_title }}</a></h4>
             <p class="post-desc">
-                Fowl don't sea fill of divided by create female don't man image
-                female wherein night ...
+                {{ service.banner_description|safe|truncatewords_html:20 }}
             </p>
         </div>
     </div>

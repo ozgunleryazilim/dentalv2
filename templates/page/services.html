@@ -1,21 +1,24 @@
 {% extends "base.html" %}
 {% load static i18n %}
+{% load services %}
 
 {% block content %}
 
-    {% include "components/banner.html" %}
+    {% if category %}
+        {% include "components/banner.html" with obj=category %}
+    {% else %}
+        {% get_service_category_seo_obj as category_seo %}
+        {% include "components/banner.html" with obj=category_seo %}
+    {% endif %}
 
     <div class="container blog-masonry-section padding-small">
         <div class="grid row">
             <div class="grid-sizer col-1"></div>
 
-            {% include "components/services/service-item.html" %}
-            {% include "components/services/service-item.html" %}
-            {% include "components/services/service-item.html" %}
-            {% include "components/services/service-item.html" %}
-            {% include "components/services/service-item.html" %}
-            {% include "components/services/service-item.html" %}
-            {% include "components/services/service-item.html" %}
+            {% for service in services %}
+                {% include "components/services/service-item.html" %}
+            {% endfor %}
+
         </div>
 
         {% include "components/pagination.html" %}

@@ -1,8 +1,24 @@
-<div class="pagination mt-10">
-    <a href="#">1</a>
-    <a class="active" href="#">2</a>
-    <a href="#">3</a>
-    <a href="#"><i class="fas fa-ellipsis-h"></i></a>
-    <a href="#">12</a>
-    <a href="#"><i class="far fa-caret-right"></i></a>
-</div>
+{% if is_paginated %}
+    <div class="pagination mt-10">
+        {% if page_obj.has_previous %}
+            <a href="?{{ queries.urlencode }}&amp;page={{ page_obj.previous_page_number }}">
+                <i class="far fa-caret-left"></i>
+            </a>
+        {% endif %}
+        {% for i in paginator.page_range %}
+            {% if i <= page_obj.number|add:5 and i >= page_obj.number|add:-5 %}
+                {% if page_obj.number == i %}
+                    <a class="active" href="#">{{ i }}</a>
+                {% else %}
+                    <a href="?{{ queries.urlencode }}&amp;page={{ i }}">{{ i }}</a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?{{ queries.urlencode }}&amp;page={{ page_obj.next_page_number }}">
+                <i class="far fa-caret-right"></i>
+            </a>
+        {% endif %}
+    </div>
+{% endif %}

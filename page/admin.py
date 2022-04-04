@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from parler.admin import TranslatableAdmin
-from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory, BeforeAfterImage,
-                         AboutPageSeo)
+from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory, ServiceItem,
+                         ServicesPageSeo, BeforeAfterImage, AboutPageSeo)
 
 admin.site.register(Keywords, TranslatableAdmin)
 
@@ -19,7 +19,16 @@ class HomeSliderAdmin(TranslatableAdmin):
 @admin.register(HomePageSeo)
 class HomePageSeoAdmin(TranslatableAdmin):
     fieldsets = (
-        (_("Seo Bilgileri"), {'fields': seo_fields}),
+        (_("Seo Information"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)
+
+
+@admin.register(ServicesPageSeo)
+class ServicesPageSeoAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("Banner Information"), {'fields': ('banner_title', 'banner_description', 'banner_image')}),
+        (_("Seo Information"), {'fields': seo_fields}),
     )
     filter_vertical = ('meta_keywords',)
 
@@ -27,7 +36,8 @@ class HomePageSeoAdmin(TranslatableAdmin):
 @admin.register(ServiceCategory)
 class ServiceCategoryAdmin(TranslatableAdmin):
     fieldsets = (
-        (_("Category Information"), {'fields': ('name', 'description', 'icon', 'in_home')}),
+        (_("Category Information"), {'fields': ('name', 'slug', 'description', 'icon', 'in_home')}),
+        (_("Banner Information"), {'fields': ('banner_title', 'banner_description', 'banner_image')}),
         (_("SEO Information"), {'fields': seo_fields}),
     )
     filter_vertical = ('meta_keywords',)
@@ -35,6 +45,29 @@ class ServiceCategoryAdmin(TranslatableAdmin):
     list_editable = ('icon', 'in_home')
     list_filter = ('icon', 'in_home')
     search_fields = ('name',)
+
+    def get_prepopulated_fields(self, request, obj=None):
+        return {
+            'slug': ('name',),
+        }
+
+
+@admin.register(ServiceItem)
+class ServiceItemAdmin(TranslatableAdmin):
+    fieldsets = (
+        (None,
+         {'fields': ('banner_title', 'slug', 'category', 'banner_description', 'content', 'image', 'banner_image')}),
+        (_("SEO Information"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)
+    list_display = ('banner_title', 'slug', 'category')
+    list_filter = ('category',)
+    search_fields = ('banner_title',)
+
+    def get_prepopulated_fields(self, request, obj=None):
+        return {
+            'slug': ('banner_title',)
+        }
 
 
 @admin.register(BeforeAfterImage)

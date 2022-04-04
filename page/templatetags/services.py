@@ -1,7 +1,12 @@
 from django import template
-from page.models import ServiceCategory
+from page.models import ServiceCategory, ServicesPageSeo
 
 register = template.Library()
+
+
+@register.simple_tag
+def get_service_category_seo_obj():
+    return ServicesPageSeo.objects.first()
 
 
 @register.simple_tag

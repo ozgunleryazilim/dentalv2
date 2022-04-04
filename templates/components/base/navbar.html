@@ -35,10 +35,8 @@
                     <ul class="sub-menu">
                         {% get_service_category_list as service_categories %}
                         {% for service_category in service_categories %}
-                            {# TODO: Services url degisecek... #}
-                            {% url 'services' as service_category_url %}
                             <li>
-                                <a href="{{ service_category_url }}">
+                                <a href="{{ services_url }}?category={{ service_category.slug }}">
                                     <i class="fas fa-angle-right"></i>{{ service_category.name }}
                                 </a>
                             </li>
