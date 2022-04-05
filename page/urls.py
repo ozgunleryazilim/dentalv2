@@ -1,7 +1,7 @@
 from django.urls import path
 from django.utils.translation import ugettext_lazy as _
 
-from page.views import (HomePage, AboutPage, ServicesPage, ServicesDetailPage, HowItWorksPage)
+from page.views import (HomePage, AboutPage, ServicesPage, ServicesDetailPage, HowItWorksPage, BeforeAfterPage)
 
 urlpatterns = [
     path('', HomePage.as_view(), name="home"),
@@ -9,4 +9,5 @@ urlpatterns = [
     path(_('services/'), ServicesPage.as_view(), name="services"),
     path(_('services/<slug>/'), ServicesDetailPage.as_view(), name="services_detail"),
     path(_('how-it-works/'), HowItWorksPage.as_view(), name="how_it_works"),
+    path(_('before-after/'), BeforeAfterPage.as_view(), name="before_after"),
 ]
