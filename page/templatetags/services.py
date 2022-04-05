@@ -1,5 +1,5 @@
 from django import template
-from page.models import ServiceCategory, ServicesPageSeo
+from page.models import ServiceCategory, ServicesPageSeo, ServiceItem
 
 register = template.Library()
 
@@ -17,3 +17,8 @@ def get_service_category_list():
 @register.simple_tag
 def get_service_category_home_list():
     return ServiceCategory.objects.filter(in_home=True)[:3]
+
+
+@register.simple_tag
+def get_service_item_list():
+    return ServiceItem.objects.all()[:15]
