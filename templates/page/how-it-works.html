@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 {% load static i18n %}
+{% load howitworks %}
+
+{% block meta %}
+    {% get_howitworks_seo as seo_obj %}
+    {% include "components/base/meta.html" with obj=seo_obj %}
+{% endblock %}
 
 {% block content %}
 
     {% url "home" as book_appointment_url %}
     {% url "home" as download_app_url %}
 
-    {% include "components/banner.html" %}
+    {% get_howitworks_seo as seo_obj %}
+    {% include "components/banner.html" with obj=seo_obj %}
 
     <div class="container step-section">
         <div class="row d-flex justify-content-center">

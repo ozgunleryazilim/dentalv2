@@ -2,6 +2,15 @@
 {% load static i18n %}
 {% load services %}
 
+{% block meta %}
+    {% if category %}
+        {% include "components/base/meta.html" with obj=category %}
+    {% else %}
+        {% get_service_category_seo_obj as seo_obj %}
+        {% include "components/base/meta.html" with obj=seo_obj %}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 
     {% if category %}
