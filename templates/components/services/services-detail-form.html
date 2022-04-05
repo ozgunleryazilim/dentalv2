@@ -1,0 +1,49 @@
+{% load i18n %}
+
+<div class="review-form-section">
+    <div class="container">
+        <form class="review-form">
+            <div class="row">
+                <div class="col-12 offset-lg-0 offset-sm-2 offset-1">
+                    <h3 class="form-title ls-n-20">
+                        {% trans "Fill out the form and take advantage of the free consultation privilege!" %}
+                    </h3>
+                </div>
+            </div>
+            <div class="row row-joined">
+                <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                    <div class="input-group input-light input-review ">
+                        <input name="name" type="text" class="form-control" placeholder="{% trans 'Name' %} *">
+                    </div>
+                    <div class="input-group input-light input-review my-5">
+                        <input type="email" class="form-control" placeholder="{% trans 'Email' %} *">
+                    </div>
+                    <div class="input-group input-light input-review my-5">
+                        <input type="text" class="form-control" placeholder="{% trans 'Phone Number' %} *">
+                    </div>
+
+                </div>
+                <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                    <div class="input-group input-light input-review">
+                        <select class="form-control">
+                            <option value="">{% trans "Treatment Selection" %}</option>
+                        </select>
+                    </div>
+                    <div class="input-group input-light input-review">
+                        <textarea class="form-control text-area"
+                                  placeholder="{% trans 'Your Message' %} *"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 offset-lg-0 d-lg-flex justify-content-lg-center col-sm-8 offset-sm-2 col-10 offset-1">
+                    <div class="banner-actions">
+                        <button type="submit" class="btn btn-form btn-primary-color mr-0">
+                            <span>{% trans "Contact us" %}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
