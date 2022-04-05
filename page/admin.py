@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from parler.admin import TranslatableAdmin
 from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory, ServiceItem,
-                         ServicesPageSeo, BeforeAfterImage, AboutPageSeo)
+                         ServicesPageSeo, BeforeAfterImage, AboutPageSeo, FrequentlyAskedQuestion)
 
 admin.site.register(Keywords, TranslatableAdmin)
 
@@ -85,3 +85,9 @@ class AboutPageSeoAdmin(TranslatableAdmin):
     )
     filter_vertical = ('meta_keywords',)
     list_display = ('banner_title',)
+
+
+@admin.register(FrequentlyAskedQuestion)
+class FrequentlyAskedQuestionAdmin(TranslatableAdmin):
+    fields = ('question', 'answer')
+    list_display = ('question',)

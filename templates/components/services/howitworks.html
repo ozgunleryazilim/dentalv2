@@ -1,0 +1,79 @@
+{% load static i18n %}
+
+{% url 'home' as home_url %}
+{# TODO: How it works url guncellenecek...  #}
+{% url 'home' as howitworks_url %}
+
+<div class="container image-box-section pt-3">
+    <h4 class="ls-n-20 text-center">
+        {% trans "How does our online consultation work?" %}
+    </h4>
+    <div class="row d-flex justify-content-center">
+        <div class="image-box image-over col-12 mb-5">
+            <figure>
+                <img src="{% static 'assets/images/demos/demo-3/img-box/img3-1.png' %}"
+                     alt="Image-over" width="298" height="461">
+            </figure>
+            <div class="box-content">
+                <h4 class="box-title">
+                    {% blocktrans trimmed %}
+                        1. Fill out our form with your treatment choice and other information
+                    {% endblocktrans %}
+                </h4>
+                <p class="box-desc">
+                    {% blocktrans trimmed %}
+                        Lorem ipsum sit amet dolor. Dummy text for free spaces
+                    {% endblocktrans %}
+                </p>
+                <div class="btn-link btn-link-primary">
+                    <a href="{{ home_url }}#before-after-gallery">{% trans "Fill it now" %}</a><i
+                        class="far fa-caret-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="image-box image-over col-12 mb-5" style="margin-top: 10rem;">
+            <figure>
+                <img src="{% static 'assets/images/demos/demo-3/img-box/img3-2.png' %}" alt="Image-over" width="259"
+                     height="424">
+            </figure>
+            <div class="box-content">
+                <h4 class="box-title">
+                    {% blocktrans trimmed %}
+                        2. Schedule a free consultation with our dental specialists.
+                    {% endblocktrans %}
+                </h4>
+                <p class="box-desc">
+                    {% blocktrans trimmed %}
+                        Lorem ipsum sit amet dolor. Dummy text for free spaces
+                    {% endblocktrans %}
+                </p>
+                <div class="btn-link btn-link-primary">
+                    <a href="{{ home_url }}#contact">{% trans "Contact now" %}</a><i class="far fa-caret-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-box image-over col-12" style="margin-top: 10rem;">
+            <figure>
+                <img src="{% static 'assets/images/demos/demo-3/img-box/img3-3.png' %}"
+                     alt="Image-over" width="325" height="461">
+            </figure>
+            <div class="box-content">
+                <h4 class="box-title">
+                    {% blocktrans trimmed %}
+                        3. Let your journey be planned to discover your new smile!
+                    {% endblocktrans %}
+                </h4>
+                <p class="box-desc">
+                    {% blocktrans trimmed %}
+                        Lorem ipsum sit amet dolor. Dummy text for free spaces
+                    {% endblocktrans %}
+                </p>
+                <div class="btn-link btn-link-primary">
+                    <a href="{{ howitworks_url }}">{% trans "How it works?" %}</a><i class="far fa-caret-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -14,11 +14,16 @@
                     <div class="blog-content">
                         {{ service.content|safe }}
                     </div>
+
+                    {% include "components/services/faq.html" %}
+
+                    {% include "components/services/services-form.html" %}
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
                 <div class="side-bar">
-                    {% include "components/home/slider-form.html" %}
+                    {% include "components/services/services-side-form.html" %}
+
                     <div class="sidebar-box">
                         <h4 class="box-title">{% trans "All Services" %}</h4>
                         <div class="box-content mt-0">
@@ -36,11 +41,12 @@
                             </ul>
                         </div>
                     </div>
-                    {% include "components/home/howitworks.html" %}
+                    {% include "components/services/howitworks.html" %}
                 </div>
             </div>
         </div>
     </div>
 
+    {% include "components/home/contact.html" %}
 
 {% endblock %}
