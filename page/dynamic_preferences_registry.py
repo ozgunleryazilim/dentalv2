@@ -49,17 +49,25 @@ class YoutubeLink(StringPreference):
     verbose_name = _("Youtube Link")
 
 
-# @global_preferences_registry.register
-# class TwitterLink(StringPreference):
-#     section = page
-#     name = 'twitter_link'
-#     default = "https://twitter.com/nedirabicom"
-#     verbose_name = _("Twitter Linki")
+@global_preferences_registry.register
+class AddressLine1(StringPreference):
+    section = page
+    name = 'address_line1'
+    default = "Adres Line 1"
+    verbose_name = _("Adres Line 1")
 
 
-# @global_preferences_registry.register
-# class Address(StringPreference):
-#     section = page
-#     name = 'address'
-#     default = "Ümraniye/İstanbul"
-#     verbose_name = _("Adres")
+@global_preferences_registry.register
+class AddressLine2(StringPreference):
+    section = page
+    name = 'address_line2'
+    default = "Adres Line 2"
+    verbose_name = _("Adres Line 2")
+
+
+@global_preferences_registry.register
+class AddressLine3(StringPreference):
+    section = page
+    name = 'address_line3'
+    default = "Adres Line 3"
+    verbose_name = _("Adres Line 3")

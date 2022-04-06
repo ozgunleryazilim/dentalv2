@@ -89,3 +89,7 @@ class BlogDetailPage(TranslatableSlugMixin, FormMixin, DetailListView):
         if form.is_valid():
             return self.form_valid(form)
         return self.form_invalid(form)
+
+
+class ContactPage(TemplateView):
+    template_name = "page/contact.html"

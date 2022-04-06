@@ -6,3 +6,4 @@ from .about import *
 from .faq import *
 from .howitworks import *
 from .blog import *
+from .contact import *

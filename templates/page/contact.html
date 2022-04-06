@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load contactpage %}
+
+{% block meta %}
+    {% get_contact_obj as contact %}
+    {% include "components/base/meta.html" with obj=contact %}
+{% endblock %}
+
+{% block content %}
+
+    {% get_contact_obj as contact %}
+    {% include "components/banner.html" with obj=contact %}
+
+
+    <div class="container contact-detail-section padding-small">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12 col-sm-8 col-10">
+                <h2 class="ls-n-20 text-center section-heading">{% trans "We are here to help you." %}</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 col-sm-8 col-10">
+                <div class="icon-box icon-box-simple">
+                    <figure>
+                        <a class="icon-image"><i class="fal fa-phone"></i></a>
+                    </figure>
+                    <div class="icon-box-content text-center">
+                        <p class="box-info mb-0">{% trans "Please call on" %}</p>
+                        <h4 class="box-title mb-0">{{ global_preferences.page__phone_number }}</h4>
+                        <p class="box-desc ls-0 mb-0">{% trans "to get support." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-8 col-10">
+                <div class="icon-box icon-box-simple">
+                    <figure>
+                        <a class="icon-image"><i class="fal fa-envelope-open"></i></a>
+                    </figure>
+                    <div class="icon-box-content text-center">
+                        <p class="box-info mb-0">{% trans "Please email on" %}</p>
+                        <h4 class="box-title mb-0">{{ global_preferences.page__email_address }}</h4>
+                        <p class="box-desc ls-0 mb-0">{% trans "to get support." %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-8 col-10">
+                <div class="icon-box icon-box-simple">
+                    <figure>
+                        <a class="icon-image"><i class="fal fa-map-marker-alt"></i></a>
+                    </figure>
+                    <div class="icon-box-content text-center">
+                        <p class="box-info mb-0">{{ global_preferences.page__address_line1 }}</p>
+                        <h4 class="box-title mb-0">{{ global_preferences.page__address_line2 }}</h4>
+                        <p class="box-desc ls-0 mb-0">{{ global_preferences.page__address_line3 }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container contact-map-section position-relative padding-small">
+        <div id="map" style="height: 684px;background-color: #f4f4f4;border-radius: 30px;"></div>
+        <div class="card-contact card-rating">
+            <p class="card-info ls-0">
+                {% trans "Coming for a visit or a coffee?" %}
+            </p>
+            <div class="btn-link">
+                <a href="#">{% trans "Get Direction" %}</a><i class="far fa-caret-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="container contact-form-section padding-small">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12 col-sm-8 col-10">
+                <h2 class="ls-n-20 text-center section-heading">
+                    {% trans "Got questions?" %}<br>
+                    {% trans "Write us a message." %}
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2 col-10 offset-1">
+                <form class="book-form book-form-contact">
+                    <div class="row row-joined">
+                        <div class="col-sm-12 col-lg-6 mt-2">
+                            <div class="input-group input-light">
+                                <input type="text" class="form-control" placeholder="{% trans 'Name' %} *">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mt-2">
+                            <div class="input-group input-light">
+                                <input type="text" class="form-control" placeholder="{% trans 'Phone Number' %}">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mt-2">
+                            <div class="input-group input-light">
+                                <input type="email" class="form-control" placeholder="{% trans 'Email' %} *">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6 mt-2">
+                            <div class="input-group input-light">
+                                <select name="treatment_selection" id="" class="form-control select-control">
+                                    <option value="">{% trans "Treatment Selection" %}</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-2">
+                            <div class="input-group input-light">
+                                <textarea class="form-control text-area" placeholder="{% trans 'Message' %} *"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary-color btn-form d-flex mr-auto ml-auto mb-1">
+                        <span>{% trans "Send Message" %}</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block extra-script %}
+    <!-- Google Map -->
+    <script src="http://maps.googleapis.com/maps/api/js?key"></script>
+
+    <script>
+        // Google Map api v3 - Map for contact pages
+        if (document.getElementById("map") && typeof google === "object") {
+
+            var content = '<address>' +
+                '88 Pine St,<br>' +
+                'New York, NY 10005, USA<br>' +
+                '<a href="#" class="direction-link" target="_blank">Get Directions <i class="icon-angle-right"></i></a>' +
+                '</address>';
+
+            var latLong = new google.maps.LatLng(40.8127911, -73.9624553);
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: latLong, // Map Center coordinates
+                scrollwheel: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: content,
+                maxWidth: 360
+            });
+
+            var marker;
+            marker = new google.maps.Marker({
+                position: latLong,
+                map: map,
+                animation: google.maps.Animation.DROP
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker) {
+                return function () {
+                    infowindow.open(map, marker);
+                }
+            })(marker));
+        }
+    </script>
+
+{% endblock %}
