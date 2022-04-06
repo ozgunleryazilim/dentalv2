@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load gdpr_page %}
+
+{% block meta %}
+    {% get_gdpr_obj as gdpr %}
+    {% include "components/base/meta.html" with obj=gdpr %}
+{% endblock %}
+
+{% block content %}
+
+    {% get_gdpr_obj as gdpr %}
+    {% include "components/banner.html" with obj=gdpr %}
+
+    <div class="container apppointment-step-3-section">
+        {{ gdpr.content|safe }}
+    </div>
+
+
+{% endblock %}

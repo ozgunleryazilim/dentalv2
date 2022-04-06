@@ -8,3 +8,4 @@ from .howitworks import *
 from .blog import *
 from .contact import *
 from .appointment import *
+from .gdpr import *

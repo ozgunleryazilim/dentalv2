@@ -5,7 +5,7 @@ from parler.admin import TranslatableAdmin
 from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory, ServiceItem,
                          ServicesPageSeo, BeforeAfterImage, AboutPageSeo, FrequentlyAskedQuestion, HowItWorksPageSeo,
                          BeforeAfterPageSeo, BlogsPageSeo, BlogCategory, Blog, BlogComment, ContactPageSeo,
-                         AppointmentPageSeo)
+                         AppointmentPageSeo, GDPRPageSeo)
 
 admin.site.register(Keywords, TranslatableAdmin)
 
@@ -185,6 +185,17 @@ class ContactPageSeoAdmin(TranslatableAdmin):
 @admin.register(AppointmentPageSeo)
 class AppointmentPageSeoAdmin(TranslatableAdmin):
     fieldsets = (
+        (_("Banner Information"), {'fields': ('banner_title', 'banner_description', 'banner_image')}),
+        (_("SEO Information"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)
+    list_display = ('banner_title',)
+
+
+@admin.register(GDPRPageSeo)
+class GDPRPageSeoAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("Content Information"), {'fields': ('content',)}),
         (_("Banner Information"), {'fields': ('banner_title', 'banner_description', 'banner_image')}),
         (_("SEO Information"), {'fields': seo_fields}),
     )

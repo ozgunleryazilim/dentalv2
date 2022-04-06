@@ -1,13 +1,13 @@
 {% load static i18n %}
+{% load services %}
 
-{# TODO: Url degisecek... #}
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
-{% url 'home' as services_url %}
-{% url 'home' as howitworks_url %}
-{% url 'home' as beforeafter_url %}
-{% url 'home' as blog_url %}
-{% url 'home' as gdpr_url %}
+{% url 'services' as services_url %}
+{% url 'how_it_works' as howitworks_url %}
+{% url 'before_after' as beforeafter_url %}
+{% url 'blog_list' as blog_url %}
+{% url 'gdpr' as gdpr_url %}
 {% url 'home' as privacy_url %}
 
 <footer class="footer bg-primary-color">
@@ -56,11 +56,16 @@
                         <div class="info-box">
                             <h6 class="info-title">{% trans "Services" %}</h6>
                             <ul class="info-list">
-                                {# TODO: Services kategorileri eklenecek... #}
-                                <li><a href="#" class="info-link">Reviews</a></li>
-                                <li><a href="#" class="info-link">FAQs</a></li>
-                                <li><a href="#" class="info-link">Help Center</a></li>
-                                <li><a href="#" class="info-link">Doctors</a></li>
+                                {% get_service_category_list as service_categories %}
+                                {% for service_category in service_categories %}
+
+                                    <li>
+                                        <a href="{{ services_url }}?category={{ service_category.slug }}"
+                                           class="info-link">
+                                            {{ service_category.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -79,10 +84,10 @@
                             {# TODO: Map eklenecek... #}
                             <p></p>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         <div class="footer-bottom">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-12 col-sm-7 col-10">

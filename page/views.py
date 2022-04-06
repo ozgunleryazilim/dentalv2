@@ -97,3 +97,7 @@ class ContactPage(TemplateView):
 
 class AppointmentPage(TemplateView):
     template_name = "page/appointment.html"
+
+
+class GDPRPage(TemplateView):
+    template_name = "page/gdpr.html"
