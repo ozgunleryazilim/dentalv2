@@ -59,6 +59,10 @@ class Blog(TranslatableModel, SEOStarterModel, TimestampStarterModel):
     def __str__(self):
         return self.title
 
+    def increase_view_count(self):
+        self.view_count += 1
+        self.save()
+
 
 class BlogComment(TimestampStarterModel):
     blog = models.ForeignKey(Blog, verbose_name=_("Blog"), on_delete=models.CASCADE)

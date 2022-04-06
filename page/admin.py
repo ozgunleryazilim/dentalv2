@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from parler.admin import TranslatableAdmin
 from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory, ServiceItem,
                          ServicesPageSeo, BeforeAfterImage, AboutPageSeo, FrequentlyAskedQuestion, HowItWorksPageSeo,
-                         BeforeAfterPageSeo)
+                         BeforeAfterPageSeo, BlogsPageSeo, BlogCategory, Blog, BlogComment)
 
 admin.site.register(Keywords, TranslatableAdmin)
 
@@ -112,3 +112,59 @@ class BeforeAfterPageSeoAdmin(TranslatableAdmin):
 class FrequentlyAskedQuestionAdmin(TranslatableAdmin):
     fields = ('question', 'answer')
     list_display = ('question',)
+
+
+@admin.register(BlogsPageSeo)
+class BlogsPageSeoAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("Banner Information"), {'fields': ('banner_title', 'banner_description', 'banner_image')}),
+        (_("Seo Information"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)
+
+
+@admin.register(BlogCategory)
+class BlogCategoryAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("Category Information"), {'fields': ('title', 'slug', 'description', 'image', 'banner_image')}),
+        (_("SEO Information"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)
+    list_display = ('title', 'slug')
+    search_fields = ('title',)
+
+    def get_prepopulated_fields(self, request, obj=None):
+        return {
+            'slug': ('title',),
+        }
+
+
+class BlogCommentInline(admin.StackedInline):
+    model = BlogComment
+
+
+@admin.register(Blog)
+class BlogAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("Blog Information"),
+         {'fields': ('title', 'slug', 'category', 'description', 'content', 'image', 'banner_image')}),
+        (_("SEO Information"), {'fields': seo_fields}),
+    )
+    inlines = (BlogCommentInline,)
+    filter_vertical = ('meta_keywords',)
+    list_display = ('title', 'slug', 'category')
+    list_filter = ('category',)
+    search_fields = ('title',)
+
+    def get_prepopulated_fields(self, request, obj=None):
+        return {
+            'slug': ('title',)
+        }
+
+
+@admin.register(BlogComment)
+class BlogCommentAdmin(admin.ModelAdmin):
+    list_display = ('blog', 'name', 'is_approved')
+    list_filter = ('is_approved',)
+    list_editable = ('is_approved',)
+    search_fields = ('name',)

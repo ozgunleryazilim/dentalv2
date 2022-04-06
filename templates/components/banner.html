@@ -30,13 +30,21 @@
                 <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
                     <div class="banner-content">
                         <h2 class="banner-title">
-                            {{ obj.banner_title|default_if_none:"" }}
+                            {% if obj.banner_title %}
+                                {{ obj.banner_title|default_if_none:"" }}
+                            {% elif obj.title %}
+                                {{ obj.title|default_if_none:"" }}
+                            {% else %}
+                                {{ obj.name|default_if_none:"" }}
+                            {% endif %}
                         </h2>
-                        {% if obj.banner_description %}
-                            <p class="banner-info">
+                        <p class="banner-info">
+                            {% if obj.banner_description %}
                                 {{ obj.banner_description|safe }}
-                            </p>
-                        {% endif %}
+                            {% elif obj.description %}
+                                {{ obj.description|safe }}
+                            {% endif %}
+                        </p>
                         <div class="banner-actions">
                             <a href="{{ contact_url }}" class="btn btn-sm btn-primary-color">
                                 <span>{% trans "Contact us" %}</span>

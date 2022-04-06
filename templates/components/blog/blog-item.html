@@ -3,7 +3,7 @@
 <div class="grid-item col-sm-12 col-lg-6">
     <div class="post-box">
         <figure>
-            {% url "home" as blog_detail_url %}
+            {% url "blog_detail" slug=blog.slug as blog_detail_url %}
             {% if blog.image %}
                 <a href="{{ blog_detail_url }}">
                     <img src="{{ blog.image.url }}" alt="{{ blog.title }}" width="370" height="257">
@@ -23,7 +23,7 @@
                 <a href="#">{{ blog.created_date|date:"DATE_FORMAT" }}</a>
                 <span class="text-divider">|</span>
                 <a href="{{ blog_detail_url }}">
-                    {% blocktrans trimmed with comment_count=blog.comment_set.count %}
+                    {% blocktrans trimmed with comment_count=blog.blogcomment_set.count %}
                         {{ comment_count }} Comments
                     {% endblocktrans %}
                 </a>

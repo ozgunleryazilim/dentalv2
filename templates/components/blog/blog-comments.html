@@ -1,0 +1,25 @@
+{% load static i18n %}
+
+<div class="blog-comments">
+    <h3 class="title">{% trans "Comments" %}</h3>
+    <ul class="comment-list">
+        {% for comment in page_obj %}
+        <li>
+            <div class="comment d-flex mt-2">
+                <figure>
+                    <img src="{% static 'assets/images/avatar/avatar-8.png' %}" class="avatar" alt="Avatar" width="92" height="92">
+                </figure>
+                <div class="comment-body flex-grow-1">
+                    <h4 class="comment-author ">{{ comment.name }}</h4>
+                    <span>{{ comment.created_date|date:"DATE_FORMAT" }}</span>
+                    <p class="comment-desc">
+                        {{ comment.comment|safe }}
+                    </p>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+
+    </ul>
+    {% include "components/blog/blog-comment-form.html" %}
+</div>

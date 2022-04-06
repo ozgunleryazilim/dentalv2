@@ -1,0 +1,28 @@
+{% load i18n %}
+
+<form class="review-form" method="post">
+    {% csrf_token %}
+    <h3 class="form-title ls-n-20">{% trans "Write a reply" %}</h3>
+    <div class="row">
+        <div class="col-lg-6 mt-2">
+
+            <div class="input-group input-light input-review">
+                {{ form.name }}
+            </div>
+            <div class="input-group input-light input-review">
+                {{ form.email }}
+            </div>
+
+        </div>
+        <div class="col-lg-6 mt-2">
+            <div class="input-group input-light input-review">
+                {{ form.comment }}
+            </div>
+        </div>
+    </div>
+    <div class="banner-actions d-flex">
+        <button type="submit" class="btn btn-form btn-primary-color">
+            <span>{% trans "Send" %}</span>
+        </button>
+    </div>
+</form>

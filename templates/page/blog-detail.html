@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    {% include "components/base/meta.html" with obj=blog %}
+{% endblock %}
+
+{% block content %}
+
+    {% include "components/banner.html" with obj=blog %}
+
+    <div class="container blog-detailed blog-detailed-sidebar padding-small">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                <div class="blog-content">
+                    {{ blog.content|safe }}
+                </div>
+                {% include "components/services/services-form.html" %}
+
+                {% include "components/blog/blog-comments.html" %}
+
+            </div>
+            <div class="col-lg-4 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                <div class="side-bar">
+
+                    {% include "components/blog/search-form.html" %}
+
+                    {% include "components/blog/blog-categories.html" %}
+
+                    {% include "components/blog/most-read-posts.html" %}
+
+                    {% include "components/blog/blogs-side-form.html" %}
+
+                    {% include "components/blog/subscribe-form.html" %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
