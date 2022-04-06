@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load appointment_page %}
+
+{% block meta %}
+    {% get_appointment_obj as appointment %}
+    {% include "components/base/meta.html" with obj=appointment %}
+{% endblock %}
+
+{% block content %}
+
+    {% get_appointment_obj as appointment %}
+    {% include "components/banner.html" with obj=appointment %}
+
+    <div class="container apppointment-step-3-section">
+        <div class="row">
+            <div class="col-lg-12 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                <h2 class="ls-n-20 line-height-1">{% trans "Ready to renew your smile?" %}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                <div>
+                    <h4 class="sub-title">
+                        {% trans "Schedule your appointment now and our experts will reach you!" %}
+                    </h4>
+                    <div class="payment-tab mt-3  mb-5">
+                        <ul class="nav nav-tabs" id="tabs-1" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link-custom active" id="tab-1-tab" data-toggle="tab" href="#tab-1"
+                                   role="tab" aria-controls="tab-1" aria-selected="true">
+                                    <span class="nav-check ls-0"><i class="fas fa-check"></i></span>
+                                    {% trans "Appointment" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link-custom custom-1" id="tab-2-tab" data-toggle="tab" href="#tab-2"
+                                   role="tab" aria-controls="tab-2" aria-selected="false">
+                                    <span class="nav-check ls-0"><i class="fas fa-check"></i></span>
+                                    {% trans "Online Consultation" %}
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="tab-content-1">
+                            <div class="tab-pane fade show active" id="tab-1" role="tabpanel"
+                                 aria-labelledby="tab-1-tab">
+                                {% include "components/appointment/appointment-form.html" %}
+                            </div>
+                            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2-tab">
+                                {% include "components/appointment/appointment-form.html" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                <div class="image-box">
+                    <figure>
+                        <img src="{% static 'assets/images/doctors/doctor3-7.jpg' %}" class="w-100" alt="Doctor" width="370"
+                             height="407">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

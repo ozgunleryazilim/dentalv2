@@ -93,3 +93,7 @@ class BlogDetailPage(TranslatableSlugMixin, FormMixin, DetailListView):
 
 class ContactPage(TemplateView):
     template_name = "page/contact.html"
+
+
+class AppointmentPage(TemplateView):
+    template_name = "page/appointment.html"

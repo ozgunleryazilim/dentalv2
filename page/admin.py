@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from parler.admin import TranslatableAdmin
+
 from page.models import (Keywords, HomeSlider, seo_translations, HomePageSeo, ServiceCategory, ServiceItem,
                          ServicesPageSeo, BeforeAfterImage, AboutPageSeo, FrequentlyAskedQuestion, HowItWorksPageSeo,
-                         BeforeAfterPageSeo, BlogsPageSeo, BlogCategory, Blog, BlogComment)
+                         BeforeAfterPageSeo, BlogsPageSeo, BlogCategory, Blog, BlogComment, ContactPageSeo,
+                         AppointmentPageSeo)
 
 admin.site.register(Keywords, TranslatableAdmin)
 
@@ -168,3 +170,23 @@ class BlogCommentAdmin(admin.ModelAdmin):
     list_filter = ('is_approved',)
     list_editable = ('is_approved',)
     search_fields = ('name',)
+
+
+@admin.register(ContactPageSeo)
+class ContactPageSeoAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("Banner Information"), {'fields': ('banner_title', 'banner_description', 'banner_image')}),
+        (_("SEO Information"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)
+    list_display = ('banner_title',)
+
+
+@admin.register(AppointmentPageSeo)
+class AppointmentPageSeoAdmin(TranslatableAdmin):
+    fieldsets = (
+        (_("Banner Information"), {'fields': ('banner_title', 'banner_description', 'banner_image')}),
+        (_("SEO Information"), {'fields': seo_fields}),
+    )
+    filter_vertical = ('meta_keywords',)
+    list_display = ('banner_title',)

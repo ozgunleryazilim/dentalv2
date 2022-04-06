@@ -7,3 +7,4 @@ from .faq import *
 from .howitworks import *
 from .blog import *
 from .contact import *
+from .appointment import *

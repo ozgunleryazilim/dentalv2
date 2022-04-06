@@ -1,0 +1,45 @@
+{% load i18n %}
+<form action="#">
+    <div class="row row-joined">
+        <div class="col-md-12 col-lg-6">
+            <div class="input-group input-light first-name">
+                <h6 class="input-title mt-0">{% trans "Name & Surname" %}</h6>
+                <input type="text" class="form-control"
+                       placeholder="{% trans 'First Name' %}">
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <div class="input-group input-light last-name">
+                <input type="text" class="form-control"
+                       placeholder="{% trans 'Last Name' %}">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="input-group input-light">
+                <h6 class="input-title">{% trans "Email" %}</h6>
+                <input type="email" class="form-control"
+                       placeholder="{% trans 'Email' %}">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="input-group input-light">
+                <h6 class="input-title">{% trans "Phone Number" %}</h6>
+                <input type="text" class="form-control"
+                       placeholder="+90555 555 55 55">
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="input-group input-light">
+                <h6 class="input-title">{% trans "Treatment Selection" %}</h6>
+                <select name="treatment_selection" class="form-control">
+                    <option value="">{% trans "Treatment Selection" %}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-12 d-lg-flex">
+            <button type="submit" class="btn btn-primary-color btn-form">
+                <span>{% trans "Send" %}</span>
+            </button>
+        </div>
+    </div>
+</form>

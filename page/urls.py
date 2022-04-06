@@ -2,7 +2,7 @@ from django.urls import path
 from django.utils.translation import ugettext_lazy as _
 
 from page.views import (HomePage, AboutPage, ServicesPage, ServicesDetailPage, HowItWorksPage, BeforeAfterPage,
-                        BlogListPage, BlogDetailPage, ContactPage)
+                        BlogListPage, BlogDetailPage, ContactPage, AppointmentPage)
 
 urlpatterns = [
     path('', HomePage.as_view(), name="home"),
@@ -14,4 +14,5 @@ urlpatterns = [
     path(_('blog/'), BlogListPage.as_view(), name="blog_list"),
     path(_('blog/<slug>/'), BlogDetailPage.as_view(), name="blog_detail"),
     path(_('contact/'), ContactPage.as_view(), name="contact"),
+    path(_('appointment/'), AppointmentPage.as_view(), name="appointment"),
 ]
