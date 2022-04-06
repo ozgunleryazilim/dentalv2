@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load blogs %}
+
+<div class="sidebar-box">
+    <h4 class="box-title">{% trans "Most Read Posts" %}</h4>
+    <div class="box-content">
+        {% get_popular_blogs as popular_blogs %}
+        {% for blog in popular_blogs %}
+            {% url "home" as blog_detail_url %}
+            <div class="post">
+                {% if blog.image %}
+                    <figure>
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" width="71" height="71">
+                    </figure>
+                {% endif %}
+                <p class="post-title"><a href="{{ blog_detail_url }}">{{ blog.title }}</a></p>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>

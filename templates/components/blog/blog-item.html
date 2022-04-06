@@ -1,0 +1,36 @@
+{% load i18n %}
+
+<div class="grid-item col-sm-12 col-lg-6">
+    <div class="post-box">
+        <figure>
+            {% url "home" as blog_detail_url %}
+            {% if blog.image %}
+                <a href="{{ blog_detail_url }}">
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" width="370" height="257">
+                    <div class="hover">
+                        <div class="circle">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        </figure>
+        <div class="box-content">
+            <h4 class="box-title">
+                <a href="{{ blog_detail_url }}">{{ blog.title }}</a>
+            </h4>
+            <p class="post-date">
+                <a href="#">{{ blog.created_date|date:"DATE_FORMAT" }}</a>
+                <span class="text-divider">|</span>
+                <a href="{{ blog_detail_url }}">
+                    {% blocktrans trimmed with comment_count=blog.comment_set.count %}
+                        {{ comment_count }} Comments
+                    {% endblocktrans %}
+                </a>
+            </p>
+            <p class="post-desc">
+                {{ blog.description|striptags|safe|truncatewords_html:30 }}
+            </p>
+        </div>
+    </div>
+</div>

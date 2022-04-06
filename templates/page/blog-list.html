@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% load blogs %}
+
+{% block meta %}
+    {% if category %}
+        {% include "components/base/meta.html" with obj=category %}
+    {% else %}
+        {% get_blog_category_seo_obj as seo_obj %}
+        {% include "components/base/meta.html" with obj=seo_obj %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% if category %}
+        {% include "components/banner.html" with obj=category %}
+    {% else %}
+        {% get_blog_category_seo_obj as category_seo %}
+        {% include "components/banner.html" with obj=category_seo %}
+    {% endif %}
+
+    <div class="container blog-sidebar-list padding-small">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                <div class="grid row">
+                    <div class="grid-sizer col-1"></div>
+
+                    {% for blog in blog_list %}
+                        {% include "components/blog/blog-item.html" %}
+                    {% endfor %}
+
+                </div>
+                {% include "components/pagination.html" %}
+            </div>
+            <div class="col-lg-4 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
+                <div class="side-bar mt-3">
+
+                    {% include "components/blog/search-form.html" %}
+
+                    {% include "components/blog/blog-categories.html" %}
+
+                    {% include "components/blog/most-read-posts.html" %}
+
+                    {% include "components/blog/blogs-side-form.html" %}
+
+                    {% include "components/blog/subscribe-form.html" %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

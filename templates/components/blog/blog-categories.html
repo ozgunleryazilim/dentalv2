@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load blogs %}
+
+<div class="sidebar-box">
+    <h4 class="box-title">{% trans "Categories" %}</h4>
+    <div class="box-content mt-0 mb-3">
+        <ul class="cat-menu ls-20">
+            {% get_blog_category_list as categories %}
+            {% for category in categories %}
+                <li class="menu-item">
+                    <a href="{% url 'blog_list' %}?category={{ category.slug }}" class="item-link">
+                        <i class="far fa-caret-right"></i>
+                        {{ category.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

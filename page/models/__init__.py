@@ -5,3 +5,4 @@ from .before_after import *
 from .about import *
 from .faq import *
 from .howitworks import *
+from .blog import *
