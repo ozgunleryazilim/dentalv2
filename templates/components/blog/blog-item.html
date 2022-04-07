@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<div class="grid-item col-sm-12 col-lg-6">
+<div class="grid-item {{ style_class|default:'col-sm-12 col-lg-6' }}">
     <div class="post-box">
         <figure>
             {% url "blog_detail" slug=blog.slug as blog_detail_url %}

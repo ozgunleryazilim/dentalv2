@@ -15,7 +15,7 @@ def get_blog_category_list():
 
 
 @register.simple_tag
-def get_blog_list():
+def get_blog_home_list():
     return Blog.objects.all()[:3]
 
 
