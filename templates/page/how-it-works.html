@@ -9,9 +9,6 @@
 
 {% block content %}
 
-    {% url "home" as book_appointment_url %}
-    {% url "home" as download_app_url %}
-
     {% get_howitworks_seo as seo_obj %}
     {% include "components/banner.html" with obj=seo_obj %}
 
@@ -43,11 +40,6 @@
                             online at a time that works with your schedule.
                         {% endblocktrans %}
                     </p>
-                    <div class="banner-actions">
-                        <a href="{{ book_appointment_url }}" class="btn btn-secondary-color">
-                            <span>{% trans "Book an Appointment" %}</span>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="banner-aside banner-aside-switch align-items-lg-start d-md-flex img-right figure-over col-lg-12 col-md-8 col-sm-8 col-10">
@@ -69,11 +61,6 @@
                             online at a time that works with your schedule.
                         {% endblocktrans %}
                     </p>
-                    <div class="banner-actions">
-                        <a href="{{ download_app_url }}" class="btn btn-secondary-color">
-                            <span>{% trans "Download the App" %}</span>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="banner-aside align-items-lg-start d-md-flex figure-over col-lg-12 col-md-8 col-sm-8 col-10">
@@ -95,11 +82,6 @@
                             online at a time that works with your schedule.
                         {% endblocktrans %}
                     </p>
-                    <div class="banner-actions">
-                        <a href="{{ book_appointment_url }}" class="btn btn-secondary-color">
-                            <span>{% trans "Book an Appointment" %}</span>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

@@ -8541,6 +8541,7 @@ input[type=password] {
 }
 .gallery-layout2 .gallery-img img {
   border-radius: 10px;
+  width: 100%;
 }
 .gallery-layout2 .gallery-img .popup-gallery-item {
   position: absolute;
@@ -9858,6 +9859,8 @@ input[type=password] {
 .step-section .section-heading {
   width: 58%;
   margin-bottom: 113px;
+  font-size: 5rem;
+  line-height: 7rem;
 }
 .step-section .banner-content .banner-title {
   font-size: 4rem;
