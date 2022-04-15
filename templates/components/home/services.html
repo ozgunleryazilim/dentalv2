@@ -1,7 +1,7 @@
 {% load static i18n %}
 {% load services %}
 
-
+{% url "services" as service_list_url %}
 <div class="container department-preview-section pt-0">
     <div class="row">
         <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-12 offset-lg-0">
@@ -11,11 +11,9 @@
     <div class="row">
         {% get_service_category_home_list as categories %}
         {% for category in categories %}
-            {# TODO: Category url degisecek... #}
-            {% url 'home' as category_detail_url %}
             <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
                 <div class="icon-box hover-border text-center">
-                    <a href="{{ category_detail_url }}">
+                    <a href="{{ service_list_url }}?category={{ category.slug }}">
 
                         {% if category.icon %}
                             <figure>
@@ -29,10 +27,12 @@
                         {% endif %}
                     </a>
                     <div class="icon-box-content">
-                        <a href="{{ category_detail_url }}"><h4 class="box-title">{{ category.name }}</h4></a>
+                        <a href="{{ service_list_url }}?category={{ category.slug }}">
+                            <h4 class="box-title">{{ category.name }}</h4>
+                        </a>
                         <p class="box-desc">{{ category.description|safe|default:"" }}</p>
                         <div class="btn-link">
-                            <a href="{{ category_detail_url }}">{% trans "Learn More" %}</a><i
+                            <a href="{{ service_list_url }}?category={{ category.slug }}">{% trans "Learn More" %}</a><i
                                 class="far fa-caret-right"></i>
                         </div>
                     </div>

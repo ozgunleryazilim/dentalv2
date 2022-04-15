@@ -23,6 +23,8 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/vendor/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/phonePlugin.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/phone_input.css' %}">
 
 </head>
 <body>
@@ -64,6 +66,35 @@
 
 <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
 <script src="{% static 'assets/js/popup-script.js' %}"></script>
+<script src="{% static 'assets/js/plugins/phonePlugin.js' %}"></script>
+
+<script>
+    var input = document.querySelector("#contact-Phone");
+    var input2 = document.querySelector("#contact-side-phone");
+
+    const inputConf = {
+        allowDropdown: true,
+        formatOnDisplay: true,
+        hiddenInput: "contact-full_number",
+        initialCountry: "{% if LANGUAGE_CODE == 'en' %}us{% else %}{{ LANGUAGE_CODE }}{% endif %}",
+        placeholderNumberType: "MOBILE",
+        preferredCountries: ['us', 'tr', 'de', 'it', 'es', 'ru'],
+        separateDialCode: true,
+        utilsScript: "{% static 'assets/js/plugins/phone.js' %}",
+    }
+
+    window.intlTelInput(input, inputConf);
+    window.intlTelInput(input2, inputConf);
+
+    $(document).on('submit', '#form-contact', function (e) {
+        let phoneInput = $('[name=contact-full_number]').val()
+        if (!phoneInput.includes('+')) {
+            $('#contact-Phone').addClass('is-invalid');
+            $('#contact-Phone-error').removeClass('d-none');
+            e.preventDefault();
+        }
+    })
+</script>
 
 {% block extra-script %}
 

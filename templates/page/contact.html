@@ -91,10 +91,9 @@
                                 <input type="text" class="form-control" placeholder="{% trans 'Name' %} *">
                             </div>
                         </div>
-                        {# TODO: Phone country code eklenecek... #}
                         <div class="col-sm-12 col-lg-6 mt-2">
                             <div class="input-group input-light">
-                                <input type="text" class="form-control" placeholder="{% trans 'Phone Number' %}">
+                                <input id="contact-Phone" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6 mt-2">
@@ -133,51 +132,5 @@
         </div>
     </div>
 
-
-{% endblock %}
-
-{% block extra-script %}
-    <!-- Google Map -->
-    <script src="http://maps.googleapis.com/maps/api/js?key"></script>
-
-    <script>
-        // Google Map api v3 - Map for contact pages
-        if (document.getElementById("map") && typeof google === "object") {
-
-            var content = '<address>' +
-                '88 Pine St,<br>' +
-                'New York, NY 10005, USA<br>' +
-                '<a href="#" class="direction-link" target="_blank">Get Directions <i class="icon-angle-right"></i></a>' +
-                '</address>';
-
-            var latLong = new google.maps.LatLng(40.8127911, -73.9624553);
-
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
-                center: latLong, // Map Center coordinates
-                scrollwheel: false,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-
-            });
-
-            var infowindow = new google.maps.InfoWindow({
-                content: content,
-                maxWidth: 360
-            });
-
-            var marker;
-            marker = new google.maps.Marker({
-                position: latLong,
-                map: map,
-                animation: google.maps.Animation.DROP
-            });
-
-            google.maps.event.addListener(marker, 'click', (function (marker) {
-                return function () {
-                    infowindow.open(map, marker);
-                }
-            })(marker));
-        }
-    </script>
 
 {% endblock %}

@@ -28,12 +28,10 @@
     </div>
     <div class="input-group input-light input-calendar-light">
         <h6 class="input-title">{% trans "Phone Number with Country Code" %}</h6>
-        <input type="text" name="phone" class="form-control"
-               placeholder="+xx 555 55 55">
+        <input id="contact-Phone" type="text" name="phone" class="form-control">
         <i class="far fa-phone-alt"></i>
     </div>
 
-    {# TODO: Checkbox gorunumu iyilestirilecek... #}
     <div class="form-group mt-3">
         <input type="checkbox" name="contactKvkk" id="InputKVKK" class="form-check-input"
                    required data-error="{% trans 'GDPR field is required' %}">
