@@ -5050,7 +5050,7 @@ ul.sub-menu li.li-with-arrow i.fa-caret-right {
 }
 
 /* Scroll Top Button */
-#scroll-top {
+.sticky-button {
   width: 5rem;
   height: 5rem;
   position: fixed;
@@ -5075,13 +5075,7 @@ ul.sub-menu li.li-with-arrow i.fa-caret-right {
   -ms-transform: translateY(60px);
 }
 
-#scroll-top:hover,
-#scroll-top:focus {
-  color: #fff;
-  background-color: #21cdc0;
-}
-
-#scroll-top.show {
+.sticky-button.show {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -5089,8 +5083,20 @@ ul.sub-menu li.li-with-arrow i.fa-caret-right {
   -ms-transform: translateY(0);
 }
 
+#whatsapp-btn {
+  bottom: 110px;
+  background-color: #6cf476;
+  color: white;
+}
+
+#scroll-top:hover,
+#scroll-top:focus {
+  color: #fff;
+  background-color: #21cdc0;
+}
+
 @media (min-width: 768px) {
-  #scroll-top {
+  .sticky-button {
     display: flex;
   }
 }

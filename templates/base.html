@@ -37,7 +37,11 @@
     {% include 'components/base/footer.html' %}
 </div>
 
-<button id="scroll-top" title="Back to Top"><i class="fal fa-angle-up"></i></button>
+<a id="whatsapp-btn"
+   href="{{ global_preferences.page__whatsapp_link }}" title="Whatsapp" class="sticky-button" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<button id="scroll-top" title="Back to Top" class="sticky-button"><i class="fal fa-angle-up"></i></button>
 
 {% include 'components/base/mobile-menu.html' %}
 

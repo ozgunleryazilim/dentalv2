@@ -136,7 +136,7 @@
 }
 
 /* Scroll Top Button */
-#scroll-top {
+.sticky-button {
 	width: 5rem;
 	height: 5rem;
 	position: fixed;
@@ -161,13 +161,7 @@
 	-ms-transform: translateY(60px);
 }
 
-#scroll-top:hover,
-#scroll-top:focus {
-	color: #fff;
-	background-color: $secondary-color;
-}
-
-#scroll-top.show {
+.sticky-button.show {
 	visibility: visible;
 	opacity: 1;
 	transform: translateY(0);
@@ -175,9 +169,22 @@
 	-ms-transform: translateY(0);
 }
 
+#whatsapp-btn{
+	bottom: 110px;
+    background-color: $whatsapp-color;
+    color: white;
+}
+
+#scroll-top:hover,
+#scroll-top:focus {
+	color: #fff;
+	background-color: $secondary-color;
+}
+
+
 
 @include mq('md') {
-	#scroll-top {
+	.sticky-button {
 		display: flex;
 	}
 }

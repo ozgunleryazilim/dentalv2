@@ -18,6 +18,14 @@ class PhoneNumber(StringPreference):
 
 
 @global_preferences_registry.register
+class WhatsappLink(StringPreference):
+    section = page
+    name = 'whatsapp_link'
+    default = "https://api.whatsapp.com/send?phone=905551560505"
+    verbose_name = _("Whatsapp Link")
+
+
+@global_preferences_registry.register
 class EmailAddress(StringPreference):
     section = page
     name = 'email_address'
