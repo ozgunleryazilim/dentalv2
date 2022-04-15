@@ -38,13 +38,13 @@
                                 {{ obj.name|default_if_none:"" }}
                             {% endif %}
                         </h2>
-                        <p class="banner-info">
+                        <div class="banner-info">
                             {% if obj.banner_description %}
                                 {{ obj.banner_description|safe }}
                             {% elif obj.description %}
                                 {{ obj.description|safe }}
                             {% endif %}
-                        </p>
+                        </div>
                         <div class="banner-actions">
                             <a href="{{ contact_url }}" class="btn btn-sm btn-primary-color">
                                 <span>{% trans "Contact us" %}</span>

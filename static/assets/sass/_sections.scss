@@ -164,8 +164,8 @@
 }
 
 .step-section {
-    padding-top: 132px;
-    padding-bottom: 150px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     .section-heading {
         width: 58%;
         margin-bottom: 113px;        
@@ -474,8 +474,8 @@
 }
 
 .about-primary-section {
-    padding-top: 152px;
-    padding-bottom: 150px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     p {
         margin-bottom: 21px;
     }
@@ -499,6 +499,13 @@
         figure {
             margin-bottom: 5rem;
         }
+    }
+}
+
+.about-primary-section {
+    .banner-title{
+        font-size: 4rem;
+        line-height: 5rem;
     }
 }
 

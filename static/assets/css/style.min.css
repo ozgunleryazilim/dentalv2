@@ -6528,7 +6528,7 @@ body:not(.loaded) * {
   margin-bottom: 4rem;
 }
 .intro-slider .intro-slide .banner-title {
-  font-size: 5rem;
+  font-size: 4rem;
   line-height: 6rem;
 }
 @media (max-width: 991px) {
@@ -9852,8 +9852,8 @@ input[type=password] {
 }
 
 .step-section {
-  padding-top: 132px;
-  padding-bottom: 150px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 .step-section .section-heading {
   width: 58%;
@@ -10123,8 +10123,8 @@ input[type=password] {
 }
 
 .about-primary-section {
-  padding-top: 152px;
-  padding-bottom: 150px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 .about-primary-section p {
   margin-bottom: 21px;
@@ -10151,6 +10151,11 @@ input[type=password] {
   .about-primary-section figure {
     margin-bottom: 5rem;
   }
+}
+
+.about-primary-section .banner-title {
+  font-size: 4rem;
+  line-height: 5rem;
 }
 
 .team-section {
