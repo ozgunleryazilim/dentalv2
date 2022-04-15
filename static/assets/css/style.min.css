@@ -10314,6 +10314,11 @@ input[type=password] {
 .contact-detail-section {
   padding-top: 132px;
 }
+.contact-detail-section .section-heading {
+  width: 60%;
+  font-size: 5rem;
+  line-height: 7rem;
+}
 .contact-detail-section h2 {
   margin: 0;
 }
@@ -10344,6 +10349,11 @@ input[type=password] {
 .contact-form-section {
   padding-top: 142px;
   padding-bottom: 140px;
+}
+.contact-form-section .section-heading {
+  width: 60%;
+  font-size: 5rem;
+  line-height: 7rem;
 }
 @media (max-width: 991px) {
   .contact-form-section {
