@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load static i18n %}
 {% load services %}
 
 
@@ -16,9 +16,15 @@
             <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
                 <div class="icon-box hover-border text-center">
                     <a href="{{ category_detail_url }}">
+
                         {% if category.icon %}
                             <figure>
-                                <i class="fal {{ category.icon }}"></i>
+                                {% if category.icon|slice:":2" == "fa" %}
+                                    <i class="fal {{ category.icon }}"></i>
+                                {% else %}
+                                    <img src="{% static "assets/images/service_icons/"|add:category.icon %}"
+                                         alt="{{ category.name }}" class="w-75 h-50">
+                                {% endif %}
                             </figure>
                         {% endif %}
                     </a>

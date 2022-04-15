@@ -29,6 +29,21 @@ class ServiceCategory(TranslatableModel, SEOStarterModel, TimestampStarterModel)
         SCALPEL_PATH = "fa-scalpel-path"
         HEAD_SIDE_BRAIN = "fa-head-side-brain"
         HEARTH_RATE = "fa-heart-rate"
+        CAGRI_MERKEZI = "cagri-merkezi.svg"
+        DENTAL_1 = "dental-1.svg"
+        DIS_KORUMA = "dis-koruma.svg"
+        DIS_MUAYENE = "dis-muayene.svg"
+        HOLLYWOOD_SMILE = "hollywood-smile.svg"
+        IMPLANT_TEDAVISI = "implant-tedavisi.svg"
+        ORTHODONTI = "orthodonti.svg"
+        ORTHODONTI_2 = "orthodonti-2.svg"
+        TEETH_1 = "teeth-1.svg"
+        TEETH_2 = "teeth-2.svg"
+        TEETH_3 = "teeth-3.svg"
+        TEETH_4 = "teeth-4.svg"
+        TEETH_5 = "teeth-5.svg"
+        TEETH_6 = "teeth-6.svg"
+        TOMOGRAFI = "tomografi.svg"
 
     translations = TranslatedFields(
         name=models.CharField(_("Category Name"), max_length=200),
