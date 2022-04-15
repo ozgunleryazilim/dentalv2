@@ -1,105 +1,131 @@
 // Owl Carousel
 
 .owl-theme.owl-nav-inside .owl-nav {
-    .owl-prev  {
-        left: 65px;
+  .owl-prev {
+    left: 65px;
+  }
+
+  .owl-next {
+    right: 65px;
+  }
+
+  .owl-prev,
+  .owl-next {
+    opacity: .4;
+
+    &:hover {
+      opacity: 1;
+      color: $primary-color;
     }
-    .owl-next {
-        right: 65px;
+  }
+}
+
+.owl-theme .owl-nav {
+  .owl-prev,
+  .owl-next {
+    &:hover {
+      color: $primary-color !important;
     }
-    .owl-prev,
-    .owl-next {
-        opacity: .4;
-        &:hover {
-            opacity: 1;
-            color: $primary-color;
-        }
-    }
+  }
 }
 
 .owl-nav {
-    svg {
-        width: 2.2rem;
-        height: 2.2rem;
-        stroke-width: 2rem;
-        stroke: #dde8e9;
-    }
+  svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    stroke-width: 2rem;
+    stroke: #dde8e9;
+  }
 }
 
 .intro-slider.owl-theme .owl-nav [class*='owl-'] {
-    &:hover {
-        background-color: #fff;
-        svg {
-            fill: $secondary-color;
-            stroke: #fff;
-        }
+  &:hover {
+    background-color: #fff;
+
+    svg {
+      fill: $secondary-color;
+      stroke: #fff;
     }
+  }
 }
 
 .intro-slider {
+  overflow-y: hidden;
+
+  .owl-item {
+    height: 100%;
     overflow-y: hidden;
-    .owl-item {
+  }
+
+  .intro-slide {
+    overflow-y: hidden;
+
+    .images {
+      width: 100%;
+      height: 100%;
+
+      img {
+        position: absolute;
+        left: 0;
+        width: 100%;
         height: 100%;
-        overflow-y: hidden;
+
+        &.mobile-image {
+          display: none;
+        }
+      }
     }
+
+    .banner-info {
+      margin-bottom: 4rem;
+    }
+
+    .banner-title {
+      font-size: 5rem;
+      line-height: 6rem;
+    }
+  }
+
+  @include mq(lg, max) {
     .intro-slide {
-        overflow-y: hidden;
-        .images {
-            width: 100%;
-            height: 100%;
-            img {
-                position: absolute;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                &.mobile-image {
-                    display: none;
-                }
-            }
+      .container {
+        height: 100% !important;
+        justify-content: flex-end !important;
+      }
+
+      .images {
+        bottom: 0;
+
+        img {
+          width: 100% !important;
+          height: initial !important;
+          bottom: 0;
+
+          right: initial;
+
+          &.desktop-image {
+            display: none;
+          }
+
+          &.mobile-image {
+            display: block;
+          }
         }
-        .banner-info {
-            margin-bottom: 4rem;
-        }
-        .banner-title {
-            font-size: 5rem;
-            line-height: 6rem;
-        }
+      }
     }
-    @include mq(lg, max) {
-        .intro-slide {
-            .container {
-                height: 100% !important;
-                justify-content: flex-end !important;
-            }
-            .images {
-                bottom: 0;
-                img {
-                    width: 100% !important;
-                    height: initial !important;
-                    bottom: 0;
-                    
-                    right: initial;
-                    &.desktop-image {
-                        display: none;
-                    }
-                    &.mobile-image {
-                        display: block;
-                    }
-                }
-            }
-        }
-    }
+  }
 }
 
 @media (max-width: 1500px) {
-    .intro-slider.owl-theme {
-        .owl-nav [class*='owl-'] {
-            opacity: 0;
-            &:hover {
-                visibility: visible;
-                opacity: 1;
-                
-            }
-        }
+  .intro-slider.owl-theme {
+    .owl-nav [class*='owl-'] {
+      opacity: 0;
+
+      &:hover {
+        visibility: visible;
+        opacity: 1;
+
+      }
     }
+  }
 }

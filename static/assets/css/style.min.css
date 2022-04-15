@@ -6481,6 +6481,11 @@ body:not(.loaded) * {
   color: #263779;
 }
 
+.owl-theme .owl-nav .owl-prev:hover,
+.owl-theme .owl-nav .owl-next:hover {
+  color: #263779 !important;
+}
+
 .owl-nav svg {
   width: 2.2rem;
   height: 2.2rem;
