@@ -12,6 +12,7 @@
         opacity: .4;
         &:hover {
             opacity: 1;
+            color: $primary-color;
         }
     }
 }
@@ -58,6 +59,10 @@
         }
         .banner-info {
             margin-bottom: 4rem;
+        }
+        .banner-title {
+            font-size: 5rem;
+            line-height: 6rem;
         }
     }
     @include mq(lg, max) {

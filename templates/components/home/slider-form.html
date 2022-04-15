@@ -15,6 +15,14 @@
         <h6 class="input-title">{% trans "Treatment Selection" %}</h6>
         <select name="treatment_selection" class="form-control" id="">
             <option value="">{% trans "Please select" %}</option>
+            <option value="Hollywood Smile">{% trans "Hollywood Smile" %}</option>
+            <option value="Dental Implant">{% trans "Dental Implant" %}</option>
+            <option value="Lamine Veener">{% trans "Lamine Veener" %}</option>
+            <option value="Teeth Whitening">{% trans "Teeth Whitening" %}</option>
+            <option value="Pedodontics">{% trans "Pedodontics" %}</option>
+            <option value="Periodontology">{% trans "Periodontology" %}</option>
+            <option value="Endodontics">{% trans "Endodontics" %}</option>
+            <option value="Orthodontics">{% trans "Orthodontics" %}</option>
         </select>
         <i class="far fa-angle-down"></i>
     </div>
@@ -27,9 +35,9 @@
 
     {# TODO: Checkbox gorunumu iyilestirilecek... #}
     <div class="form-group mt-3">
-        <label for="InputKVKK" class="form-check-label">
-            <input type="checkbox" name="contactKvkk" id="InputKVKK" class="form-check-input"
+        <input type="checkbox" name="contactKvkk" id="InputKVKK" class="form-check-input"
                    required data-error="{% trans 'GDPR field is required' %}">
+        <label for="InputKVKK" class="form-check-label form_label">
             {% blocktrans trimmed %}
                 Please confirm that you have shared your personal data with Dental Bosphorus within the scope of
                 <a href="#" target="_blank" class="btn-link">GDPR Privacy Policy</a>

@@ -3988,7 +3988,7 @@ sup {
   transform: rotateY(180deg);
 }
 .header-top a:hover {
-  color: #263779;
+  color: #21cdc0;
 }
 .header-top a:hover i {
   color: #21cdc0;
@@ -4023,7 +4023,7 @@ sup {
   left: 0;
   right: 0;
   top: 48px;
-  height: 124px;
+  height: 105px;
   background-color: white;
   padding: 3rem 6.4rem;
   z-index: 10;
@@ -4898,7 +4898,7 @@ ul.sub-menu li.li-with-arrow i.fa-caret-right {
     left: 0;
     right: 0;
     top: 0;
-    height: auto;
+    height: 105px;
     z-index: 1040;
     animation-name: fixedHeader;
     animation-duration: 0.4s;
@@ -6472,6 +6472,7 @@ body:not(.loaded) * {
 .owl-theme.owl-nav-inside .owl-nav .owl-prev:hover,
 .owl-theme.owl-nav-inside .owl-nav .owl-next:hover {
   opacity: 1;
+  color: #263779;
 }
 
 .owl-nav svg {
@@ -6514,6 +6515,10 @@ body:not(.loaded) * {
 }
 .intro-slider .intro-slide .banner-info {
   margin-bottom: 4rem;
+}
+.intro-slider .intro-slide .banner-title {
+  font-size: 5rem;
+  line-height: 6rem;
 }
 @media (max-width: 991px) {
   .intro-slider .intro-slide .container {
@@ -7507,7 +7512,8 @@ input[type=password] {
   }
 }
 .form_label {
-  font-size: 1.2rem !important;
+  font-size: 1.4rem !important;
+  margin-left: 1rem;
 }
 
 .nav-tabs {

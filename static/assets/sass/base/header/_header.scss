@@ -36,7 +36,7 @@
         transform: rotateY(180deg);
     }
     a:hover {
-		color: $primary-color;
+		color: $secondary-color;
         i {
             color: $secondary-color;
         }
@@ -73,7 +73,7 @@
 	left: 0;
 	right: 0;
     top: 48px;
-    height: 124px;
+    height: 105px;
     background-color: white;
     padding: 3rem 6.4rem;
     z-index: 10;
