@@ -10782,12 +10782,13 @@ input[type=password] {
 }
 .apppointment-step-3-section h2 {
   margin-bottom: 5.5rem;
+  font-size: 4rem;
 }
 .apppointment-step-3-section .sub-title {
   margin-bottom: 0;
 }
 .apppointment-step-3-section .sub-title-1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 0.6rem;
 }
 @media (max-width: 991px) {
