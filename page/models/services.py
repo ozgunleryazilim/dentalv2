@@ -1,4 +1,5 @@
 from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
@@ -10,7 +11,7 @@ from utils.models import TimestampStarterModel
 class ServicesPageSeo(TranslatableModel, SEOStarterModel):
     translations = TranslatedFields(
         banner_title=models.CharField(_("Title"), max_length=200, blank=True, null=True),
-        banner_description=models.TextField(_("Description"), blank=True, null=True),
+        banner_description=RichTextField(_("Description"), blank=True, null=True),
         **seo_translations
     )
     banner_image = models.ImageField(_("Banner Image"), upload_to="services/banner", blank=True, null=True)
@@ -34,7 +35,7 @@ class ServiceCategory(TranslatableModel, SEOStarterModel, TimestampStarterModel)
         slug=models.SlugField(_("Slug"), max_length=200),
         description=models.TextField(_("Description"), blank=True, null=True),
         banner_title=models.CharField(_("Title"), max_length=200, blank=True, null=True),
-        banner_description=models.TextField(_("Description"), blank=True, null=True),
+        banner_description=RichTextField(_("Description"), blank=True, null=True),
         **seo_translations
     )
     icon = models.CharField(_("Category Icon"), max_length=50,
@@ -53,7 +54,7 @@ class ServiceCategory(TranslatableModel, SEOStarterModel, TimestampStarterModel)
 class ServiceItem(TranslatableModel, SEOStarterModel, TimestampStarterModel):
     translations = TranslatedFields(
         banner_title=models.CharField(_("Title"), max_length=200),
-        banner_description=models.TextField(_("Description"), blank=True, null=True),
+        banner_description=RichTextField(_("Description"), blank=True, null=True),
         slug=models.SlugField(_("Slug"), max_length=200),
         content=RichTextUploadingField(_("Content Body 1"), blank=True, null=True),
         **seo_translations

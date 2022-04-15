@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 {% url "services_detail" slug=service.slug as service_detail_url %}
 <div class="grid-item col-lg-4 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
@@ -6,7 +6,7 @@
         <figure>
             <a href="{{ service_detail_url }}">
                 {% if service.image %}
-                <img src="{{ service.image.url }}" alt="{{ service.banner_title }}" width="370" height="257">
+                    <img src="{{ service.image.url }}" alt="{{ service.banner_title }}" width="370" height="257">
                 {% endif %}
                 <div class="hover">
                     <div class="circle">
@@ -20,6 +20,9 @@
             <p class="post-desc">
                 {{ service.banner_description|safe|truncatewords_html:20 }}
             </p>
+            <a href="{{ service_detail_url }}" class="btn btn-primary-color btn-sm mt-3">
+                <span>{% trans "Detailed Information" %}</span>
+            </a>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<div class="review-form-section">
+<div class="review-form-section mb-5">
     <div class="container">
         <form class="review-form">
             <div class="row">
@@ -12,20 +12,34 @@
             </div>
             <div class="row row-joined">
                 <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
-                    <div class="input-group input-light input-review">
+                    <div class="input-group input-light input-review ">
                         <input name="name" type="text" class="form-control" placeholder="{% trans 'Name' %} *">
                     </div>
-                    <div class="input-group input-light input-review">
+                    <div class="input-group input-light input-review my-5">
                         <input type="email" class="form-control" placeholder="{% trans 'Email' %} *">
                     </div>
-                    <div class="input-group input-light input-review">
+                    {# TODO: Phone country code eklenecek... #}
+                    <div class="input-group input-light input-review my-5">
                         <input type="text" class="form-control" placeholder="{% trans 'Phone Number' %} *">
                     </div>
 
                 </div>
                 <div class="col-lg-6 offset-lg-0 col-sm-8 offset-sm-2 col-10 offset-1">
-                    <div class="input-group input-light input-review h-100">
-                        <textarea class="form-control text-area h-100"
+                    <div class="input-group input-light input-review">
+                        <select class="form-control">
+                            <option value="">{% trans "Treatment Selection" %}</option>
+                            <option value="Hollywood Smile">{% trans "Hollywood Smile" %}</option>
+                            <option value="Dental Implant">{% trans "Dental Implant" %}</option>
+                            <option value="Lamine Veener">{% trans "Lamine Veener" %}</option>
+                            <option value="Teeth Whitening">{% trans "Teeth Whitening" %}</option>
+                            <option value="Pedodontics">{% trans "Pedodontics" %}</option>
+                            <option value="Periodontology">{% trans "Periodontology" %}</option>
+                            <option value="Endodontics">{% trans "Endodontics" %}</option>
+                            <option value="Orthodontics">{% trans "Orthodontics" %}</option>
+                        </select>
+                    </div>
+                    <div class="input-group input-light input-review">
+                        <textarea class="form-control text-area"
                                   placeholder="{% trans 'Your Message' %} *"></textarea>
                     </div>
                 </div>
