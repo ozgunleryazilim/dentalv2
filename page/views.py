@@ -30,6 +30,11 @@ class ServicesDetailPage(TranslatableSlugMixin, DetailView):
     model = ServiceItem
     context_object_name = "service"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['faq_list'] = self.object.frequentlyaskedquestion_set.all()
+        return context
+
 
 class HowItWorksPage(TemplateView):
     template_name = "page/how-it-works.html"

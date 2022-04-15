@@ -112,7 +112,7 @@ class BeforeAfterPageSeoAdmin(TranslatableAdmin):
 
 @admin.register(FrequentlyAskedQuestion)
 class FrequentlyAskedQuestionAdmin(TranslatableAdmin):
-    fields = ('question', 'answer')
+    fields = ('question', 'answer', 'service')
     list_display = ('question',)
 
 

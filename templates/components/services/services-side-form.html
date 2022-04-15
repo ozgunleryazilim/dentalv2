@@ -15,11 +15,20 @@
         <h6 class="input-title">{% trans "Treatment Selection" %}</h6>
         <select name="treatment_selection" class="form-control" id="">
             <option value="">{% trans "Please select" %}</option>
+            <option value="Hollywood Smile">{% trans "Hollywood Smile" %}</option>
+            <option value="Dental Implant">{% trans "Dental Implant" %}</option>
+            <option value="Lamine Veener">{% trans "Lamine Veener" %}</option>
+            <option value="Teeth Whitening">{% trans "Teeth Whitening" %}</option>
+            <option value="Pedodontics">{% trans "Pedodontics" %}</option>
+            <option value="Periodontology">{% trans "Periodontology" %}</option>
+            <option value="Endodontics">{% trans "Endodontics" %}</option>
+            <option value="Orthodontics">{% trans "Orthodontics" %}</option>
         </select>
         <i class="far fa-angle-down"></i>
     </div>
     <div class="input-group input-light input-calendar-light">
         <h6 class="input-title">{% trans "Phone Number with Country Code" %}</h6>
+        {# TODO: Phone country code eklenecek... #}
         <input type="text" name="phone" class="form-control"
                placeholder="+xx 555 55 55">
         <i class="far fa-phone-alt"></i>

@@ -1,5 +1,4 @@
 {% load i18n %}
-{% load faq %}
 
 <div class="faq-section padding-small">
     <div class="container">
@@ -7,7 +6,6 @@
         <div class="row">
             <div class="col-12 ">
                 <div class="accordion accordion-icon" id="accordion-10">
-                    {% get_faq_list as faq_list %}
                     {% for faq in faq_list %}
                         <div class="field">
                             <div class="field-header" id="heading10-1">
