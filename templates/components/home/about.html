@@ -1,5 +1,7 @@
 {% load static i18n %}
 
+
+{% url "about" as about_url %}
 <div class="container step-section" id="about">
     <div class="row d-flex justify-content-center">
         <div class="banner-aside align-items-lg-start col-lg-12 col-md-8 col-sm-8 col-10">
@@ -27,6 +29,12 @@
                         to plan your dental health and aesthetics journey in Turkey
                     {% endblocktrans %}
                 </p>
+
+                <div class="banner-actions">
+                    <a href="{{ about_url }}" class="btn btn-primary-color btn-sm">
+                        <span>{% trans "Detailed Information" %}</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

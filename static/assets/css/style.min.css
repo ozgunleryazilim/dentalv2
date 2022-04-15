@@ -3799,7 +3799,7 @@ sup {
 }
 
 .bg-third-color {
-  background-color: #80bf2f !important;
+  background-color: #6cf476 !important;
 }
 
 .bg-fourth-color {
@@ -9714,6 +9714,11 @@ input[type=password] {
   padding-top: 131px;
   padding-bottom: 150px;
 }
+.image-box-section .section-heading {
+  width: 60%;
+  font-size: 5rem;
+  line-height: 7rem;
+}
 .image-box-section .row {
   margin-top: 16rem;
 }
@@ -9730,6 +9735,10 @@ input[type=password] {
 .blog-preview-section {
   padding-top: 132px;
   padding-bottom: 150px;
+}
+.blog-preview-section .section-heading {
+  font-size: 5rem;
+  height: 7rem;
 }
 @media (min-width: 992px) {
   .blog-preview-section .section-heading {
@@ -9769,6 +9778,8 @@ input[type=password] {
 }
 .type-section .banner-heading .banner-title {
   margin-bottom: 3.3rem;
+  font-size: 5rem;
+  line-height: 7rem;
 }
 .type-section .banner-heading .banner-info {
   margin-bottom: 45px;
@@ -9836,6 +9847,10 @@ input[type=password] {
 .step-section .section-heading {
   width: 58%;
   margin-bottom: 113px;
+}
+.step-section .banner-content .banner-title {
+  font-size: 4rem;
+  line-height: 6rem;
 }
 @media (max-width: 991px) {
   .step-section {
@@ -10447,6 +10462,11 @@ input[type=password] {
 .department-preview-section {
   padding-top: 13rem;
   padding-bottom: 15rem;
+}
+.department-preview-section .section-heading {
+  width: 60%;
+  font-size: 5rem;
+  line-height: 7rem;
 }
 @media (max-width: 991px) {
   .department-preview-section {

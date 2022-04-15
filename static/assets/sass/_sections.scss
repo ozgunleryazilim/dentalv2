@@ -34,6 +34,11 @@
 .image-box-section { 
     padding-top: 131px;
     padding-bottom: 150px;
+    .section-heading {
+        width: 60%;
+        font-size: 5rem;
+        line-height: 7rem;
+    }
     .row {
         margin-top: 16rem;
     }
@@ -51,6 +56,10 @@
 .blog-preview-section {
     padding-top: 132px;
     padding-bottom: 150px;
+    .section-heading{
+        font-size: 5rem;
+        height: 7rem;
+    }
     @include mq(lg) {
         .section-heading {
             width: 51%;
@@ -88,6 +97,8 @@
     .banner-heading {
         .banner-title {
             margin-bottom: 3.3rem;
+            font-size: 5rem;
+            line-height: 7rem;
         }
         .banner-info {
             margin-bottom: 45px;
@@ -158,6 +169,12 @@
     .section-heading {
         width: 58%;
         margin-bottom: 113px;        
+    }
+    .banner-content{
+        .banner-title{
+            font-size: 4rem;
+            line-height: 6rem;
+        }
     }
     @include mq(lg, max) {
         padding-top: 40px;
@@ -817,6 +834,13 @@
 .department-preview-section {
     padding-top: 13rem;
     padding-bottom: 15rem;
+
+    .section-heading{
+        width: 60%;
+        font-size: 5rem;
+        line-height: 7rem;
+    }
+
     @include mq(lg, max) {
         padding-top: 3rem;
         padding-bottom: 5rem;
