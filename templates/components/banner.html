@@ -39,9 +39,9 @@
                         </h2>
                         <div class="banner-info">
                             {% if obj.banner_description %}
-                                {{ obj.banner_description|safe }}
+                                {{ obj.banner_description|safe|linebreaks }}
                             {% elif obj.description %}
-                                {{ obj.description|safe }}
+                                {{ obj.description|safe|linebreaks }}
                             {% endif %}
                         </div>
                         <div class="banner-actions">

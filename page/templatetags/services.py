@@ -20,5 +20,8 @@ def get_service_category_home_list():
 
 
 @register.simple_tag
-def get_service_item_list():
-    return ServiceItem.objects.all()[:15]
+def get_service_item_list(limit=None):
+    query = ServiceItem.objects.all()
+    if limit:
+        return query[:limit]
+    return query

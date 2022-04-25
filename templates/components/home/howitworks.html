@@ -4,14 +4,15 @@
 {% url 'how_it_works' as howitworks_url %}
 
 <div class="container image-box-section pt-0">
-    <h2 class="ls-n-20 text-center section-heading">
+    <h2 class="ls-n-20 text-center section-heading mb-5">
         {% trans "How does our online consultation work?" %}
     </h2>
-    <div class="row d-flex justify-content-center">
+    <br>
+    <div class="row d-flex justify-content-center pt-5">
         <div class="image-box image-over col-lg-4 col-md-8 col-sm-8 col-10">
             <figure>
                 <img src="{% static 'assets/images/demos/demo-3/img-box/img3-1.png' %}"
-                     alt="Image-over" width="298" height="461">
+                     alt="Image-over" width="325" height="461">
             </figure>
             <div class="box-content">
                 <h4 class="box-title">
@@ -25,7 +26,7 @@
                     {% endblocktrans %}
                 </p>
                 <div class="btn-link btn-link-primary">
-                    <a href="{{ home_url }}#before-after-gallery">{% trans "Fill it now" %}</a><i
+                    <a href="{% url 'appointment' %}">{% trans "Fill it now" %}</a><i
                         class="far fa-caret-right"></i>
                 </div>
             </div>
@@ -47,7 +48,7 @@
                     {% endblocktrans %}
                 </p>
                 <div class="btn-link btn-link-primary">
-                    <a href="{{ home_url }}#contact">{% trans "Contact now" %}</a><i class="far fa-caret-right"></i>
+                    <a href="{% url 'contact' %}">{% trans "Contact now" %}</a><i class="far fa-caret-right"></i>
                 </div>
             </div>
         </div>
