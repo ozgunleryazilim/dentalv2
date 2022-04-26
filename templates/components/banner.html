@@ -44,22 +44,17 @@
                                 {{ obj.description|safe|linebreaks }}
                             {% endif %}
                         </div>
-                        <div class="banner-actions">
-                            <a href="{{ contact_url }}" class="btn btn-sm btn-primary-color">
-                                <span>{% trans "Contact us" %}</span>
-                            </a>
-                        </div>
+                        {% if not hide_contact_button %}
+                            <div class="banner-actions">
+                                <a href="{{ contact_url }}" class="btn btn-sm btn-primary-color">
+                                    <span>{% trans "Contact us" %}</span>
+                                </a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
 
             </div>
-        </div>
-        <div class="foreground-img">
-            {% if obj.banner_image %}
-                <img src="{{ obj.banner_image.url }}" alt="{{ obj.banner_title }}">
-            {% else %}
-                <img src="{{ default_slider_image }}" alt="{{ obj.banner_title }}">
-            {% endif %}
         </div>
     </div>
 </div>

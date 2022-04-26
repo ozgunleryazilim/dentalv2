@@ -58,13 +58,14 @@ class ServiceCategoryAdmin(TranslatableAdmin):
 @admin.register(ServiceItem)
 class ServiceItemAdmin(TranslatableAdmin):
     fieldsets = (
-        (None,
-         {'fields': ('banner_title', 'slug', 'category', 'banner_description', 'content', 'image', 'banner_image')}),
+        (None, {'fields': ('banner_title', 'slug', 'category', 'banner_description',
+                           'content', 'image', 'banner_image', 'icon','in_home')}),
         (_("SEO Information"), {'fields': seo_fields}),
     )
     filter_vertical = ('meta_keywords',)
-    list_display = ('banner_title', 'slug', 'category')
-    list_filter = ('category',)
+    list_display = ('banner_title', 'slug', 'category', 'icon', 'in_home')
+    list_editable = ('icon', 'in_home')
+    list_filter = ('category', 'icon', 'in_home')
     search_fields = ('banner_title',)
 
     def get_prepopulated_fields(self, request, obj=None):

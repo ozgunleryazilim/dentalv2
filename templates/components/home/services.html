@@ -9,30 +9,30 @@
         </div>
     </div>
     <div class="row">
-        {% get_service_category_home_list as categories %}
-        {% for category in categories %}
+        {% get_service_item_home_list as service_items %}
+        {% for service_item in service_items %}
+            {% url "services_detail" slug=service_item.slug as service_detail_url %}
             <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-4 offset-lg-0">
                 <div class="icon-box hover-border text-center">
-                    <a href="{{ service_list_url }}?category={{ category.slug }}">
-
-                        {% if category.icon %}
+                    <a href="{{ service_detail_url }}">
+                        {% if service_item.icon %}
                             <figure>
-                                {% if category.icon|slice:":2" == "fa" %}
-                                    <i class="fal {{ category.icon }}"></i>
+                                {% if service_item.icon|slice:":2" == "fa" %}
+                                    <i class="fal {{ service_item.icon }}"></i>
                                 {% else %}
                                     <img src="{% static "assets/images/service_icons/"|add:category.icon %}"
-                                         alt="{{ category.name }}" class="w-75 h-50">
+                                         alt="{{ service_item.banner_title }}" class="w-75 h-50">
                                 {% endif %}
                             </figure>
                         {% endif %}
                     </a>
                     <div class="icon-box-content">
-                        <a href="{{ service_list_url }}?category={{ category.slug }}">
-                            <h4 class="box-title">{{ category.name }}</h4>
+                        <a href="{{ service_detail_url }}">
+                            <h4 class="box-title">{{ service_item.banner_title }}</h4>
                         </a>
-                        <p class="box-desc">{{ category.description|safe|default:"" }}</p>
+                        <p class="box-desc">{{ service_item.banner_description|safe|default:"" }}</p>
                         <div class="btn-link">
-                            <a href="{{ service_list_url }}?category={{ category.slug }}">{% trans "Learn More" %}</a><i
+                            <a href="{{ service_detail_url }}">{% trans "Learn More" %}</a><i
                                 class="far fa-caret-right"></i>
                         </div>
                     </div>

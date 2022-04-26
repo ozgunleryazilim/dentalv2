@@ -25,3 +25,8 @@ def get_service_item_list(limit=None):
     if limit:
         return query[:limit]
     return query
+
+
+@register.simple_tag
+def get_service_item_home_list(limit=None):
+    return ServiceItem.objects.filter(in_home=True)[:3]

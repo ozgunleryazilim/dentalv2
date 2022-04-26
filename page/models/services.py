@@ -67,6 +67,28 @@ class ServiceCategory(TranslatableModel, SEOStarterModel, TimestampStarterModel)
 
 
 class ServiceItem(TranslatableModel, SEOStarterModel, TimestampStarterModel):
+    class ServiceIcons(models.Choices):
+        MICROSCOPE = "fa-microscope"
+        TEETH = "fa-teeth"
+        BONE_BREAK = "fa-bone-break"
+        SCALPEL_PATH = "fa-scalpel-path"
+        HEAD_SIDE_BRAIN = "fa-head-side-brain"
+        HEARTH_RATE = "fa-heart-rate"
+        CAGRI_MERKEZI = "cagri-merkezi.svg"
+        DENTAL_1 = "dental-1.svg"
+        DIS_KORUMA = "dis-koruma.svg"
+        DIS_MUAYENE = "dis-muayene.svg"
+        HOLLYWOOD_SMILE = "hollywood-smile.svg"
+        IMPLANT_TEDAVISI = "implant-tedavisi.svg"
+        ORTHODONTI = "orthodonti.svg"
+        ORTHODONTI_2 = "orthodonti-2.svg"
+        TEETH_1 = "teeth-1.svg"
+        TEETH_2 = "teeth-2.svg"
+        TEETH_3 = "teeth-3.svg"
+        TEETH_4 = "teeth-4.svg"
+        TEETH_5 = "teeth-5.svg"
+        TEETH_6 = "teeth-6.svg"
+        TOMOGRAFI = "tomografi.svg"
     translations = TranslatedFields(
         banner_title=models.CharField(_("Title"), max_length=200),
         banner_description=RichTextField(_("Description"), blank=True, null=True),
@@ -76,8 +98,10 @@ class ServiceItem(TranslatableModel, SEOStarterModel, TimestampStarterModel):
     )
     category = models.ForeignKey(ServiceCategory, blank=True, null=True, on_delete=models.SET_NULL,
                                  verbose_name=_("Kategori"))
+    icon = models.CharField(_("Category Icon"), max_length=50, choices=ServiceIcons.choices, blank=True, null=True)
     banner_image = models.ImageField(_("Banner Image"), upload_to="services/banner", blank=True, null=True)
     image = models.ImageField(_("Service Image"), upload_to="services", blank=True, null=True)
+    in_home = models.BooleanField(_("In home page services section?"), default=False)
 
     class Meta:
         verbose_name = _("Service Item")

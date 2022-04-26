@@ -10,7 +10,7 @@
 {% block content %}
 
     {% get_contact_obj as contact %}
-    {% include "components/banner.html" with obj=contact %}
+    {% include "components/banner.html" with obj=contact hide_contact_button=True %}
 
 
     <div class="container contact-detail-section padding-small">
