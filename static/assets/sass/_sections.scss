@@ -40,12 +40,12 @@
         line-height: 7rem;
     }
     .row {
-        margin-top: 16rem;
+        margin-top: 20rem;
     }
     @include mq(lg,max) {
         .image-box {
             &:not(:first-child) {
-                margin-top: 17rem;
+                margin-top: 20rem;
             }
         }
         padding-top: 50px;
@@ -1213,7 +1213,7 @@
 .book-form.book-form-4 {
     position: static;
     max-width: 405px;
-    height: 651px;
+    height: 700px;
     z-index: 2;
     .sub-title {
         margin-top: .2rem;

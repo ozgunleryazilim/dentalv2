@@ -9732,7 +9732,7 @@ input[type=password] {
   line-height: 7rem;
 }
 .image-box-section .row {
-  margin-top: 16rem;
+  margin-top: 20rem;
 }
 @media (max-width: 991px) {
   .image-box-section {
@@ -9740,7 +9740,7 @@ input[type=password] {
     padding-bottom: 50px;
   }
   .image-box-section .image-box:not(:first-child) {
-    margin-top: 17rem;
+    margin-top: 20rem;
   }
 }
 
@@ -10841,7 +10841,7 @@ input[type=password] {
 .book-form.book-form-4 {
   position: static;
   max-width: 405px;
-  height: 651px;
+  height: 700px;
   z-index: 2;
 }
 .book-form.book-form-4 .sub-title {

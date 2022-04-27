@@ -16,11 +16,6 @@
     <div class="mobile-menu-wrapper">
         <span class="mobile-menu-close"><i class="fal fa-times"></i></span>
 
-        <form class="input-group input-light input-search" action="#">
-            <input type="text" class="form-control search-control" placeholder="search" required>
-            <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
-        </form>
-
         <nav class="mobile-nav mt-5">
             <ul class="mobile-menu">
                 <li>
@@ -30,11 +25,12 @@
                 <li>
                     <a href="{{ services_url }}" class="sf-with-ul">{% trans "Services" %}</a>
                     <ul>
-                        {% get_service_category_list as service_categories %}
-                        {% for service_category in service_categories %}
+                        {% get_service_item_list as service_items %}
+                        {% for service_item in service_items %}
+                        {% url "services_detail" slug=service_item.slug as service_detail_url %}
                             <li>
-                                <a href="{{ services_url }}?category={{ service_category.slug }}">
-                                    {{ service_category.name }}
+                                <a href="{{ service_detail_url }}">
+                                    <i class="fas fa-angle-right"></i>{{ service_item.banner_title }}
                                 </a>
                             </li>
                         {% endfor %}
