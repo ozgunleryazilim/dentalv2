@@ -4,10 +4,10 @@
 <div class="container blog-preview-section">
     <div class="row d-flex justify-content-center">
         <div class="col-lg-12 col-md-8 col-sm-8 col-10">
-            <h2 class="ls-n-20 text-center section-heading">{% trans "Dental Bosphorus Blog" %}</h2>
+            <h3 class="ls-n-20 text-center section-heading">{% trans "Dental Bosphorus Blog" %}</h3>
         </div>
     </div>
-    <div class="blog-slider row d-flex justify-content-center">
+    <div class="blog-slider row d-flex justify-content-center mt-5 mt-lg-0">
         {% get_blog_home_list as blog_list %}
         {% for blog in blog_list %}
             {% with style_class="col-lg-4 col-md-8 col-sm-8 col-10" %}
