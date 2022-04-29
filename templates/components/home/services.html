@@ -20,7 +20,7 @@
                                 {% if service_item.icon|slice:":2" == "fa" %}
                                     <i class="fal {{ service_item.icon }}"></i>
                                 {% else %}
-                                    <img src="{% static "assets/images/service_icons/"|add:category.icon %}"
+                                    <img src="{% static "assets/images/service_icons/"|add:service_item.icon %}"
                                          alt="{{ service_item.banner_title }}" class="w-75 h-50">
                                 {% endif %}
                             </figure>
