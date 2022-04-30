@@ -1,33 +1,36 @@
 {% load i18n %}
 
-<div class="faq-section padding-small">
-    <div class="container">
-        <h2 class="text-center">{% trans "FAQs" %}</h2>
-        <div class="row">
-            <div class="col-12 ">
-                <div class="accordion accordion-icon" id="accordion-10">
-                    {% for faq in faq_list %}
-                        <div class="field">
-                            <div class="field-header" id="heading10-1">
-                                <h4 class="field-title">
-                                    <a class="accordion-link collapsed" role="button" data-toggle="collapse"
-                                       href="#collapse10-{{ forloop.counter }}" aria-expanded="false"
-                                       aria-controls="collapse10-{{ forloop.counter }}">
-                                        {{ faq.question }}
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse10-{{ forloop.counter }}" class="collapse"
-                                 aria-labelledby="heading10-{{ forloop.counter }}"
-                                 data-parent="#accordion-10">
-                                <div class="field-body">
-                                    {{ faq.answer|safe }}
+{% if faq_list %}
+    <div class="faq-section padding-small">
+        <div class="container">
+            <h2 class="text-center">{% trans "FAQs" %}</h2>
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="accordion accordion-icon" id="accordion-10">
+                        {% for faq in faq_list %}
+                            <div class="field">
+                                <div class="field-header" id="heading10-1">
+                                    <h4 class="field-title">
+                                        <a class="accordion-link collapsed" role="button" data-toggle="collapse"
+                                           href="#collapse10-{{ forloop.counter }}" aria-expanded="false"
+                                           aria-controls="collapse10-{{ forloop.counter }}">
+                                            {{ faq.question }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse10-{{ forloop.counter }}" class="collapse"
+                                     aria-labelledby="heading10-{{ forloop.counter }}"
+                                     data-parent="#accordion-10">
+                                    <div class="field-body">
+                                        {{ faq.answer|safe }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+{% endif %}
