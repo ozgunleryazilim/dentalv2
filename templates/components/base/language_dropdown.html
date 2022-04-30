@@ -10,7 +10,9 @@
         {% get_language_info for LANGUAGE_CODE as lang %}
 
         {% get_current_language as LANGUAGE %}
-        <img src="{% get_static_prefix %}assets/images/flags/{{ LANGUAGE_CODE }}.png" alt="{{ LANGUAGE_CODE }}"> <span>{{ lang.name_local }}</span>
+        <img src="{% get_static_prefix %}assets/images/flags/{{ LANGUAGE_CODE }}.png"
+             alt="{{ LANGUAGE_CODE|capfirst }}">
+        <span class="d-none d-md-block">{{ lang.name_local }}</span>
 
     </button>
     <div class="dropdown-menu" aria-labelledby="langDropdown">
@@ -24,13 +26,12 @@
                 {% endfor %}
             </select>
             {% for language in languages %}
-            <a class="dropdown-item" href="#" onClick="setLanguage('{{ language.code }}')">
-                <img src="{% get_static_prefix %}assets/images/flags/{{ language.code }}.png" alt="tr"> <span>{{ language.name_local }}</span>
-            </a>
+                <a class="dropdown-item" href="#" onClick="setLanguage('{{ language.code }}')">
+                    <img src="{% get_static_prefix %}assets/images/flags/{{ language.code }}.png" alt="tr">
+                    <span>{{ language.name_local|capfirst }}</span>
+                </a>
             {% endfor %}
-{#            <a class="dropdown-item" href="#" onClick="setLanguage('en')">#}
-{#                <img src="{% static 'assets/images/flags/en.png' %}" alt="en"> <span>English</span>#}
-{#            </a>#}
+
         </form>
     </div>
 </div>

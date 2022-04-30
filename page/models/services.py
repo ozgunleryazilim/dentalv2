@@ -91,9 +91,10 @@ class ServiceItem(TranslatableModel, SEOStarterModel, TimestampStarterModel):
         TOMOGRAFI = "tomografi.svg"
     translations = TranslatedFields(
         banner_title=models.CharField(_("Title"), max_length=200),
-        banner_description=RichTextField(_("Description"), blank=True, null=True),
+        banner_description=RichTextField(_("Banner Description"), blank=True, null=True),
+        home_description=RichTextField(_("Home Description"), blank=True, null=True),
         slug=models.SlugField(_("Slug"), max_length=200),
-        content=RichTextUploadingField(_("Content Body 1"), blank=True, null=True),
+        content=RichTextUploadingField(_("Content Body"), blank=True, null=True),
         **seo_translations
     )
     category = models.ForeignKey(ServiceCategory, blank=True, null=True, on_delete=models.SET_NULL,

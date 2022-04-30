@@ -58,7 +58,7 @@ class ServiceCategoryAdmin(TranslatableAdmin):
 @admin.register(ServiceItem)
 class ServiceItemAdmin(TranslatableAdmin):
     fieldsets = (
-        (None, {'fields': ('banner_title', 'slug', 'category', 'banner_description',
+        (None, {'fields': ('banner_title', 'slug', 'category', 'banner_description', 'home_description',
                            'content', 'image', 'banner_image', 'icon','in_home')}),
         (_("SEO Information"), {'fields': seo_fields}),
     )

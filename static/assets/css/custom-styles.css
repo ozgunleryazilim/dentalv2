@@ -1,0 +1,11 @@
+.navbar-logo {
+    height: 50px !important;
+    /*width: 10px;*/
+}
+
+@media (max-width: 350px) {
+    .navbar-logo {
+        width: 120px !important;
+        height: 100% !important;
+    }
+}

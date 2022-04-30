@@ -9286,7 +9286,10 @@ input[type=password] {
 .page-header {
   display: flex;
   align-items: center;
-  padding: 22.5rem 0 13rem 0;
+  padding: 20rem 0 20rem 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
 }
 .page-header .page-title {
   margin-left: -2px;
@@ -9732,7 +9735,13 @@ input[type=password] {
   line-height: 7rem;
 }
 .image-box-section .row {
-  margin-top: 20rem;
+  margin-top: 10rem;
+}
+.image-box-section.image-box-sidebar .row {
+  margin-top: 12rem;
+}
+.image-box-section.image-box-sidebar .image-box:not(:first-child) {
+  margin-top: 12rem;
 }
 @media (max-width: 991px) {
   .image-box-section {
@@ -9958,7 +9967,6 @@ input[type=password] {
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% center;
 }
 .bg-section .foreground-img {
   display: none;
@@ -9973,7 +9981,7 @@ input[type=password] {
 }
 @media (max-width: 991px) {
   .bg-section {
-    background-position: center bottom;
+    background-position: left bottom;
   }
   .bg-section .foreground-img {
     display: block;
@@ -10435,6 +10443,7 @@ input[type=password] {
 }
 .review-form-section .review-form .form-title {
   margin-bottom: 4rem;
+  font-size: 4rem;
 }
 @media (max-width: 991px) {
   .review-form-section {
@@ -10873,9 +10882,6 @@ input[type=password] {
   position: static;
 }
 @media (max-width: 991px) {
-  .intro-slide-2 {
-    padding-bottom: 0;
-  }
   .intro-slide-2 > .container > .row > div[class*=col]:nth-child(n+2) {
     margin-top: 3rem;
   }

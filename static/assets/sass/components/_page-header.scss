@@ -3,10 +3,13 @@
 .page-header {
     display: flex;
 	align-items: center;
-	padding: 22.5rem 0 13rem 0;
+	padding: 20rem 0 20rem 0;
 	.page-title {
 		margin-left: -2px;
 	}
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: right top;
 	@include mq(lg, max) {
 		padding: 12rem 0 6rem 0;
 		text-align: center;

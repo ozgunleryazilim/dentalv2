@@ -30,7 +30,7 @@
                         <a href="{{ service_detail_url }}">
                             <h4 class="box-title">{{ service_item.banner_title }}</h4>
                         </a>
-                        <p class="box-desc">{{ service_item.banner_description|safe|default:"" }}</p>
+                        <p class="box-desc">{{ service_item.home_description|default:""|safe }}</p>
                         <div class="btn-link">
                             <a href="{{ service_detail_url }}">{% trans "Learn More" %}</a><i
                                 class="far fa-caret-right"></i>

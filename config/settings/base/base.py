@@ -130,6 +130,7 @@ LANGUAGES = (
     ('it', _('Italian')),
     ('es', _('Spanish')),
     ('ru', _('Russian')),
+    ('fr', _('French')),
 )
 
 LANGUAGE_SESSION_KEY = 'language'

@@ -6,7 +6,7 @@
     @include mq(lg, max) {
         padding: 41px 0 50px 0;
         [class*="col"]{ &:nth-child(n+2){ margin-top: 25px; } }
-        .section-heading {            
+        .section-heading {
             margin-bottom: calc(25px + (50 - 25) * ((100vw - 200px) / (992 - 200)));
         }
     }
@@ -31,7 +31,7 @@
     }
 }
 
-.image-box-section { 
+.image-box-section {
     padding-top: 131px;
     padding-bottom: 150px;
     .section-heading {
@@ -40,7 +40,18 @@
         line-height: 7rem;
     }
     .row {
-        margin-top: 20rem;
+        margin-top: 10rem;
+    }
+    &.image-box-sidebar{
+        .row{
+            margin-top: 12rem;
+        }
+
+      .image-box {
+        &:not(:first-child) {
+          margin-top: 12rem;
+        }
+      }
     }
     @include mq(lg,max) {
         .image-box {
@@ -88,7 +99,7 @@
         @include mq(lg, max) {
             padding-top: 50px;
             padding-bottom: 50px;
-        } 
+        }
     }
     .banner-info {
         font-size: 2rem;
@@ -191,7 +202,7 @@
     }
 }
 
-.membership-section { 
+.membership-section {
     padding: 132px 0 150px 0;
     .section-heading {
         margin-bottom: 34px;
@@ -263,7 +274,7 @@
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% center;
+    //background-position: center center;
 
     .foreground-img {
         display: none;
@@ -279,7 +290,7 @@
     }
 
     @include mq(lg, max) {
-        background-position: center bottom;
+        background-position: left bottom;
 
         .foreground-img {
             display: block;
@@ -295,7 +306,7 @@
         background-image: url('../images/demos/demo-1/banner/banner-hero-1.jpg');
         background-position: 50% top;
     }
-    
+
     // background image for the .bg-section-2 class
     &-2 {
         background-image: url('../images/demos/demo-1/banner/banner-hero-2.jpg');
@@ -654,7 +665,7 @@
             margin-top: 1rem;
         }
     }
-    @include mq(md, max) {        
+    @include mq(md, max) {
         .doctor-detailed-image {
             .puzzle {
                 right: 0;
@@ -730,7 +741,7 @@
                         .article {
                             border-bottom: none;
                         }
-                    }   
+                    }
                 }
             }
         }
@@ -750,7 +761,7 @@
                         .article {
                             padding-top: 1.7rem;
                         }
-                    }   
+                    }
                 }
             }
         }
@@ -795,6 +806,7 @@
         margin: 0 auto;
         .form-title {
             margin-bottom: 4rem;
+            font-size: 4rem;
         }
     }
     @include mq(lg, max) {
@@ -949,7 +961,7 @@
 }
 
 .review-carousel {
-    position: relative;    
+    position: relative;
     @include mq(lg, max) {
         .card-review {
             .review-desc {
@@ -1098,7 +1110,7 @@
             margin: 0 auto;
         }
     }
-    
+
     @include mq(sm, max) {
         .banner-content {
             width: 100%;
@@ -1217,7 +1229,7 @@
     z-index: 2;
     .sub-title {
         margin-top: .2rem;
-        margin-bottom: 3rem; 
+        margin-bottom: 3rem;
     }
     .btn-form {
         font-size: 1.6rem;
@@ -1242,7 +1254,6 @@
         position: static;
     }
     @include mq(lg, max) {
-        padding-bottom: 0;
 
         & > .container {
             & > .row {
@@ -1325,7 +1336,7 @@
                 width: 100%;
             }
         }
-    }  
+    }
     .owl-nav {
         .owl-prev {
             left: -25% !important;
