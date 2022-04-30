@@ -5,81 +5,81 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-	margin-bottom: 2.5rem;
+	//margin-bottom: 2.5rem;
 	color: $primary-color;
 	font-weight: 800;
-	line-height: 1.25;
+	//line-height: 1.25;
 }
 
 h1, .h1 {
-	font-size: 8rem;
-	line-height: 10rem;
-	@include mq(lg, max) {
-		font-size: calc(20px + (80 - 20) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(40px + (100 - 40) * ((100vw - 200px) / (992 - 200)));
-	}
+	font-size: 5rem;
+	//line-height: 10rem;
+	//@include mq(lg, max) {
+	//	font-size: calc(20px + (80 - 20) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(40px + (100 - 40) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 h2, .h2 {
-	font-size: 6rem;
-	line-height: 8rem;
-	@include mq(lg, max) {
-		font-size: calc(18px + (60 - 18) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(38px + (80 - 38) * ((100vw - 200px) / (992 - 200)));
-	}
+	font-size: 4rem;
+	//line-height: 8rem;
+	//@include mq(lg, max) {
+	//	font-size: calc(18px + (60 - 18) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(38px + (80 - 38) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 h3, .h3 {
-	font-size: 5rem;
-	line-height: 7rem;
-	@include mq(lg, max) {
-		font-size: calc(16px + (50 - 16) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(36px + (70 - 36) * ((100vw - 200px) / (992 - 200)));
-	}
+	font-size: 3.5rem;
+	//line-height: 7rem;
+	//@include mq(lg, max) {
+	//	font-size: calc(16px + (50 - 16) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(36px + (70 - 36) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 h3.sub-title {
-	font-size: 4rem;
-	line-height: 6rem;
-	@include mq(lg, max) {
-		font-size: calc(15px + (40 - 15) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(35px + (60 - 35) * ((100vw - 200px) / (992 - 200)));
-	}
+	font-size: 3.5rem;
+	//line-height: 6rem;
+	//@include mq(lg, max) {
+	//	font-size: calc(15px + (40 - 15) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(35px + (60 - 35) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 h4, .h4 {
-	font-size: 2.4rem;
-	line-height: 4.4rem;
-	@include mq(lg, max) {
-		font-size: calc(14px + (24 - 14) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(29px + (44 - 29) * ((100vw - 200px) / (992 - 200)));
-	}
+	font-size: 3rem;
+	//line-height: 4.4rem;
+	//@include mq(lg, max) {
+	//	font-size: calc(14px + (24 - 14) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(29px + (44 - 29) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 h4.sub-title {
 	font-size: 3rem;
-	@include mq(lg, max) {
-		font-size: calc(15px + (30 - 15) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(25px + (50 - 25) * ((100vw - 200px) / (992 - 200)));
-	}
+	//@include mq(lg, max) {
+	//	font-size: calc(15px + (30 - 15) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(25px + (50 - 25) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 h5, .h5 {
 	font-size: 2rem;
-	line-height: 4rem;
-	@include mq(lg, max) {
-		font-size: calc(14px + (20 - 14) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(34px + (40 - 34) * ((100vw - 200px) / (992 - 200)));
-	}
+	//line-height: 4rem;
+	//@include mq(lg, max) {
+	//	font-size: calc(14px + (20 - 14) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(34px + (40 - 34) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 h6, .h6 {
 	font-size: 1.4rem;
-	line-height: 1;
-	@include mq(lg, max) {
-		font-size: calc(12px + (14 - 12) * ((100vw - 200px) / (992 - 200)));
-		line-height: calc(15px + (20 - 15) * ((100vw - 200px) / (992 - 200)));
-	}
+	//line-height: 1;
+	//@include mq(lg, max) {
+	//	font-size: calc(12px + (14 - 12) * ((100vw - 200px) / (992 - 200)));
+	//	//line-height: calc(15px + (20 - 15) * ((100vw - 200px) / (992 - 200)));
+	//}
 }
 
 //Figure 

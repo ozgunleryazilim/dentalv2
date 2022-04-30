@@ -25,6 +25,11 @@
         margin: 0 auto;
         font-size: calc(20px + (60 - 20) * ((100vw - 200px) / (992 - 200)));
         line-height: calc(27px + (80 - 27) * ((100vw - 200px) / (992 - 200)));
+        .section-heading {
+            width: 100%;
+            font-size: 3.5rem;
+            line-height: 5rem;
+        }
     }
     @include mq(sm, max) {
         width: 100%;
@@ -61,6 +66,11 @@
         }
         padding-top: 50px;
         padding-bottom: 50px;
+        .section-heading {
+            width: 100%;
+            font-size: 3.5rem;
+            line-height: 5rem;
+        }
     }
 }
 
@@ -73,7 +83,9 @@
     }
     @include mq(lg) {
         .section-heading {
-            width: 51%;
+            width: 100%;
+            font-size: 3.5rem;
+            line-height: 5rem;
         }
     }
     @include mq(lg, max) {
@@ -193,6 +205,8 @@
         padding-top: 40px;
         padding-bottom: 50px;
         .section-heading {
+            font-size: 3.2rem;
+            line-height: 5rem;
             margin: 0 auto 30px auto;
             width: 100%;
         }
@@ -695,6 +709,11 @@
         .row {
             margin-top: 0;
         }
+        .section-heading {
+            width: 100%;
+            font-size: 3.5rem;
+            line-height: 5rem;
+        }
     }
 }
 
@@ -716,6 +735,11 @@
     @include mq(lg, max) {
         padding-top: 126px;
         padding-bottom: 40px;
+        .section-heading {
+            width: 100%;
+            font-size: 3.5rem;
+            line-height: 5rem;
+        }
     }
 }
 
@@ -875,6 +899,11 @@
     @include mq(lg, max) {
         padding-top: 3rem;
         padding-bottom: 5rem;
+        .section-heading {
+            width: 100%;
+            font-size: 3.5rem;
+            line-height: 5rem;
+        }
     }
 }
 

@@ -101,12 +101,12 @@
 .blog-content {
     
     p {
-       line-height: 3.4rem; 
-       margin-bottom: 4rem;
+       //line-height: 3.4rem;
+       //margin-bottom: 4rem;
     }
-    .blog-subtitle {
-        font-size: 4rem;
-    }
+    //.blog-subtitle {
+    //    font-size: 4rem;
+    //}
     p.secondary-color {
         font-size: 3rem;
         line-height: 5rem;
@@ -123,9 +123,6 @@
             margin-right: .6rem;
         }
     }
-    h2 {
-        margin-top: 32px;
-    }
     .post-date {
         margin-top: 18px;
         margin-bottom: 34px;
@@ -137,9 +134,9 @@
             color: $body-text-color;
         }
     }
-    .blog-subtitle {
-        margin-bottom: 32px;
-    }
+    //.blog-subtitle {
+    //    margin-bottom: 32px;
+    //}
     .secondary-color {
         font-weight: 700;
     }
