@@ -9715,6 +9715,8 @@ input[type=password] {
   }
   .blog-preview-section .section-heading {
     width: 100%;
+    font-size: 3.5rem;
+    line-height: 5rem;
   }
 }
 
