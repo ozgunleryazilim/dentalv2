@@ -6,7 +6,8 @@
         {% get_before_after_images as ba_images %}
         {% for ba_image in ba_images %}
             <div class="item">
-                <img src="{{ ba_image.image.url }}" alt="{{ ba_image.name|default:'' }}" class="img-fluid w-100"/>
+                <img src="{{ ba_image.image.url }}" alt="{{ ba_image.name|default:'' }}"
+                     class="img-fluid w-100 gallery-image"/>
             </div>
         {% endfor %}
 
