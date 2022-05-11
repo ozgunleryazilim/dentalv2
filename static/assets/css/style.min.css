@@ -9219,7 +9219,7 @@ input[type=password] {
   padding: 20rem 0 20rem 0;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: right top;
+  background-position: left top;
 }
 .page-header .page-title {
   margin-left: -2px;
@@ -10193,8 +10193,8 @@ input[type=password] {
 }
 
 .faq-section {
-  padding-top: 13rem;
-  padding-bottom: 15rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 .faq-section h2 {
   margin-bottom: 3.2rem;
@@ -10266,7 +10266,7 @@ input[type=password] {
 }
 
 .contact-detail-section {
-  padding-top: 132px;
+  padding-top: 50px;
 }
 .contact-detail-section .section-heading {
   width: 60%;
@@ -10454,8 +10454,8 @@ input[type=password] {
 }
 
 .department-preview-section {
-  padding-top: 13rem;
-  padding-bottom: 15rem;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 .department-preview-section .section-heading {
   width: 60%;
@@ -10614,8 +10614,8 @@ input[type=password] {
 }
 
 .blog-sidebar-list {
-  padding-top: 12rem;
-  padding-bottom: 15rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 .blog-sidebar-list .pagination {
   margin-top: 10rem;
@@ -10632,8 +10632,8 @@ input[type=password] {
 }
 
 .blog-detailed {
-  padding-top: 15rem;
-  padding-bottom: 15rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 .blog-detailed .review-form {
   margin-top: 8rem;
