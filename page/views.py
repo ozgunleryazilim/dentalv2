@@ -1,7 +1,9 @@
 from django.urls import reverse
+from django.utils.translation import get_language
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import FormMixin
-from parler.views import TranslatableSlugMixin
+from parler.utils.context import switch_language
+from parler.views import TranslatableSlugMixin, ViewUrlMixin
 
 from page.forms import BlogCommentForm
 from page.models import ServiceItem, ServiceCategory, BeforeAfterImage, BlogCategory, Blog
@@ -25,15 +27,20 @@ class ServicesPage(CategoriedListView):
     category_model = ServiceCategory
 
 
-class ServicesDetailPage(TranslatableSlugMixin, DetailView):
+class ServicesDetailPage(TranslatableSlugMixin, ViewUrlMixin, DetailView):
     template_name = "page/services-detail.html"
     model = ServiceItem
     context_object_name = "service"
+    view_url_name = "services_detail"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['faq_list'] = self.object.frequentlyaskedquestion_set.all()
         return context
+
+    def get_view_url(self):
+        with switch_language(self.object, get_language()):
+            return reverse(self.view_url_name, kwargs={'slug': self.object.slug})
 
 
 class HowItWorksPage(TemplateView):

@@ -1,8 +1,10 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from ckeditor.fields import RichTextField
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
+from parler.utils.context import switch_language
 
 from page.models import seo_translations, SEOStarterModel
 from utils.models import TimestampStarterModel
@@ -110,3 +112,7 @@ class ServiceItem(TranslatableModel, SEOStarterModel, TimestampStarterModel):
 
     def __str__(self):
         return self.banner_title
+
+    def get_absolute_url(self):
+        with switch_language(self):
+            return reverse('services_detail', args=(self.slug,))

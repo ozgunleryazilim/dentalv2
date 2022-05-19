@@ -1,7 +1,9 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
+from parler.utils.context import switch_language
 
 from page.models import seo_translations, SEOStarterModel
 from utils.models import TimestampStarterModel
@@ -62,6 +64,10 @@ class Blog(TranslatableModel, SEOStarterModel, TimestampStarterModel):
     def increase_view_count(self):
         self.view_count += 1
         self.save()
+
+    def get_absolute_url(self):
+        with switch_language(self):
+            return reverse('blog_detail', args=(self.slug,))
 
 
 class BlogComment(TimestampStarterModel):
