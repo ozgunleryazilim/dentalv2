@@ -2,7 +2,8 @@
 
 <div class="review-form-section mb-5 pb-0">
     <div class="container">
-        <form class="review-form">
+        <form id="services-form" class="review-form" action="{% url 'handle_services_form' %}" method="POST">
+            {% csrf_token %}
             <div class="row">
                 <div class="col-12">
                     <h3 class="text-center mb-2">
@@ -10,20 +11,29 @@
                     </h3>
                 </div>
             </div>
-            <div class="row row-joined">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+
+            <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="input-group input-light input-review ">
-                        <input name="name" type="text" class="form-control" placeholder="{% trans 'Name' %} *">
+                        <input name="full_name" type="text" class="form-control" placeholder="{% trans 'Name' %} *">
                     </div>
                     <div class="input-group input-light input-review ">
-                        <input type="email" class="form-control" placeholder="{% trans 'Email' %} *">
+                        <input name="email" type="email" class="form-control" placeholder="{% trans 'Email' %} *">
                     </div>
 
-
                 </div>
-                <div class="col-lg-6 col-12 ">
+                <div class="col-lg-6 col-12 mb-2">
                     <div class="input-group input-light input-review">
-                        <select class="form-control">
+                        <select class="form-control" name="treatment">
                             <option value="">{% trans "Treatment Selection" %}</option>
                             <option value="Hollywood Smile">{% trans "Hollywood Smile" %}</option>
                             <option value="Dental Implant">{% trans "Dental Implant" %}</option>
@@ -35,8 +45,8 @@
                             <option value="Orthodontics">{% trans "Orthodontics" %}</option>
                         </select>
                     </div>
-                     <div class="input-group input-light input-review my-5">
-                        <input id="contact-Phone" type="text" class="form-control">
+                    <div class="input-group input-light input-review">
+                        <input id="contact-Phone" type="text" class="form-control" name="phone">
                     </div>
 
                 </div>
@@ -44,7 +54,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="input-group input-light input-review">
-                        <textarea class="form-control text-area"
+                        <textarea class="form-control text-area" name="message"
                                   placeholder="{% trans 'Your Message' %} *"></textarea>
                     </div>
                 </div>

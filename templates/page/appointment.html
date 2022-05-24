@@ -45,10 +45,10 @@
                         <div class="tab-content" id="tab-content-1">
                             <div class="tab-pane fade show active" id="tab-1" role="tabpanel"
                                  aria-labelledby="tab-1-tab">
-                                {% include "components/appointment/appointment-form.html" %}
+                                {% include "components/appointment/appointment-form.html" with appointment_type='Appointment' %}
                             </div>
                             <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2-tab">
-                                {% include "components/appointment/appointment-form.html" with phone_id='contact-side-phone' %}
+                                {% include "components/appointment/appointment-form.html" with phone_id='contact-side-phone' appointment_type='Online Consultation' %}
                             </div>
                         </div>
                     </div>

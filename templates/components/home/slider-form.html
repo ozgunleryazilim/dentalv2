@@ -1,7 +1,22 @@
 {% load i18n %}
 
-<form class="book-form book-form-4 w-100">
-    <h5 class="sub-title ls-n-20 text-center mb-1">{% trans "Fill out the form to plan your dental health journey!" %}</h5>
+<form class="book-form book-form-4 w-100" action="{% url 'handle_homepage_form' %}" method="POST">
+    {% csrf_token %}
+
+
+    <h5 class="sub-title ls-n-20 text-center mb-1">
+        {% trans "Fill out the form to plan your dental health journey!" %}
+    </h5>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
     <div class="input-group input-light">
         <h6 class="input-title">{% trans "Name & Surname" %}</h6>
         <input type="text" class="form-control" name="full_name" placeholder="{% trans 'Full name & surname' %}">

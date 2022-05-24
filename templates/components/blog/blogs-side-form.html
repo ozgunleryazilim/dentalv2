@@ -1,9 +1,22 @@
 {% load i18n %}
 
-<form class="book-form book-form-4 w-100 sidebar-box py-5">
+<form class="book-form book-form-4 w-100 sidebar-box py-5" id="blogs-side-form"
+      action="{% url 'handle_blogs_side_form' %}" method="POST">
+    {% csrf_token %}
     <h5 class=" ls-n-20 text-center mb-3">
         {% trans "Fill out the form to plan your dental health journey!" %}
     </h5>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert
+                {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
     <div class="input-group input-light">
         <h6 class="input-title">{% trans "Name & Surname" %}</h6>
         <input type="text" class="form-control" name="full_name" placeholder="{% trans 'Full name & surname' %}">
@@ -15,7 +28,7 @@
     </div>
     <div class="input-group input-light input-calendar-light select-input">
         <h6 class="input-title">{% trans "Treatment Selection" %}</h6>
-        <select name="treatment_selection" class="form-control" id="">
+        <select name="treatment" class="form-control" id="">
             <option value="">{% trans "Please select" %}</option>
             <option value="">{% trans "Treatment Selection" %}</option>
             <option value="Hollywood Smile">{% trans "Hollywood Smile" %}</option>
@@ -31,7 +44,7 @@
     </div>
     <div class="input-group input-light input-calendar-light">
         <h6 class="input-title">{% trans "Phone Number with Country Code" %}</h6>
-        <input id="contact-Phone" type="text" name="phone" class="form-control"
+        <input id="contact-side-phone" type="text" name="phone" class="form-control"
                placeholder="55 555 55 55">
         <i class="far fa-phone-alt"></i>
     </div>

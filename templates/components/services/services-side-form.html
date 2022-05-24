@@ -1,7 +1,20 @@
 {% load i18n %}
 
-<form class="book-form book-form-4 w-100 py-5 sidebar-box d-none d-md-block">
-    <h4 class="sub-title ls-n-20 text-center" style="font-size:2rem;">{% trans "Fill out the form to plan your dental health journey!" %}</h4>
+<form class="book-form book-form-4 w-100 py-5 sidebar-box d-none d-md-block"
+      id="services-side-form" action="{% url 'handle_services_side_form' %}" method="POST">
+    {% csrf_token %}
+    <h4 class="sub-title ls-n-20 text-center" style="font-size:2rem;">
+        {% trans "Fill out the form to plan your dental health journey!" %}
+    </h4>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert
+                {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+    {% endif %}
     <div class="input-group input-light">
         <h6 class="input-title">{% trans "Name & Surname" %}</h6>
         <input type="text" class="form-control" name="full_name" placeholder="{% trans 'Full name & surname' %}">
@@ -13,7 +26,7 @@
     </div>
     <div class="input-group input-light input-calendar-light select-input">
         <h6 class="input-title">{% trans "Treatment Selection" %}</h6>
-        <select name="treatment_selection" class="form-control" id="">
+        <select name="treatment" class="form-control" id="">
             <option value="">{% trans "Please select" %}</option>
             <option value="Hollywood Smile">{% trans "Hollywood Smile" %}</option>
             <option value="Dental Implant">{% trans "Dental Implant" %}</option>

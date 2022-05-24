@@ -82,9 +82,13 @@
         separateDialCode: true,
         utilsScript: "{% static 'assets/js/plugins/phone.js' %}",
     }
+    if (input){
+        window.intlTelInput(input, inputConf);
+    }
+    if (input2){
+        window.intlTelInput(input2, inputConf);
+    }
 
-    window.intlTelInput(input, inputConf);
-    window.intlTelInput(input2, inputConf);
 
     $(document).on('submit', '#form-contact', function (e) {
         let phoneInput = $('[name=contact-full_number]').val()

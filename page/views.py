@@ -7,7 +7,7 @@ from parler.views import TranslatableSlugMixin, ViewUrlMixin
 
 from page.forms import BlogCommentForm
 from page.models import ServiceItem, ServiceCategory, BeforeAfterImage, BlogCategory, Blog
-from utils.views import CategoriedListView, DetailListView
+from utils.views import CategoriedListView, DetailListView, HandleEmailFormView
 
 
 class HomePage(TemplateView):
@@ -113,3 +113,97 @@ class AppointmentPage(TemplateView):
 
 class GDPRPage(TemplateView):
     template_name = "page/gdpr.html"
+
+
+class HomePageEmailFormView(HandleEmailFormView):
+    subject = "DentalBosphorus - Anasayfa iletişim formu dolduruldu"
+    email_template_name = "emailtemps/home_contact_form.html"
+
+    def get_email_context(self, request):
+        return {
+            "full_name": request.POST.get('full_name', ""),
+            "email": request.POST.get('email', ""),
+            "treatment": request.POST.get('treatment_selection', ""),
+            "phone": request.POST.get('contact-full_number', ""),
+            "full_phone_number": request.POST.get('contact-full_number', ""),
+            "message": request.POST.get('message', "")
+        }
+
+
+class ServicesPageEmailFormView(HandleEmailFormView):
+    subject = "DentalBosphorus - Servisler iletişim formu dolduruldu"
+    email_template_name = "emailtemps/services_contact_form.html"
+    form_identifier = "services-form"
+
+    def get_email_context(self, request):
+        return {
+            "full_name": request.POST.get('full_name', ""),
+            "email": request.POST.get('email', ""),
+            "treatment": request.POST.get('treatment', ""),
+            "phone": request.POST.get('phone', ""),
+            "full_phone_number": request.POST.get('contact-full_number', ""),
+            "message": request.POST.get('message', "")
+        }
+
+
+class ServicesSideFormEmailView(HandleEmailFormView):
+    subject = "DentalBosphorus - Servisler Yan iletişim formu dolduruldu"
+    email_template_name = "emailtemps/services_side_contact_form.html"
+    form_identifier = "services-side-form"
+
+    def get_email_context(self, request):
+        return {
+            "full_name": request.POST.get('full_name', ""),
+            "email": request.POST.get('email', ""),
+            "treatment": request.POST.get('treatment', ""),
+            "phone": request.POST.get('phone', ""),
+            "full_phone_number": request.POST.get('contact-full_number', ""),
+        }
+
+
+class BlogSideFormEmailView(HandleEmailFormView):
+    subject = "DentalBosphorus - Blog Yan iletişim formu dolduruldu"
+    email_template_name = "emailtemps/blogs_side_contact_form.html"
+    form_identifier = "blogs-side-form"
+
+    def get_email_context(self, request):
+        return {
+            "full_name": request.POST.get('full_name', ""),
+            "email": request.POST.get('email', ""),
+            "treatment": request.POST.get('treatment', ""),
+            "phone": request.POST.get('phone', ""),
+            "full_phone_number": request.POST.get('contact-full_number', ""),
+        }
+
+
+class ContactFormEmailView(HandleEmailFormView):
+    subject = "DentalBosphorus - İletişim Sayfası formu dolduruldu"
+    email_template_name = "emailtemps/contact_form.html"
+    form_identifier = "contact-form"
+
+    def get_email_context(self, request):
+        return {
+            "full_name": request.POST.get('full_name', ""),
+            "email": request.POST.get('email', ""),
+            "treatment": request.POST.get('treatment', ""),
+            "phone": request.POST.get('phone', ""),
+            "full_phone_number": request.POST.get('contact-full_number', ""),
+            "message": request.POST.get('message', "")
+        }
+
+
+class AppointmentFormEmailView(HandleEmailFormView):
+    subject = "DentalBosphorus - Randevu Sayfası formu dolduruldu"
+    email_template_name = "emailtemps/appointment_form.html"
+    form_identifier = "appointment-form"
+
+    def get_email_context(self, request):
+        return {
+            "first_name": request.POST.get('first_name', ""),
+            "last_name": request.POST.get('last_name', ""),
+            "email": request.POST.get('email', ""),
+            "treatment": request.POST.get('treatment', ""),
+            "phone": request.POST.get('phone', ""),
+            "full_phone_number": request.POST.get('contact-full_number', ""),
+            "appointment_type": request.POST.get('appointment_type', "")
+        }

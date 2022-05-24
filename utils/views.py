@@ -1,6 +1,12 @@
+from django.conf import settings
+from django.contrib import messages
+from django.core.mail import EmailMultiAlternatives
+from django.shortcuts import redirect
+from django.template.loader import get_template
+from django.utils.translation import ugettext_lazy as _
+from django.views import View
 from django.views.generic import ListView
 from django.views.generic.detail import SingleObjectMixin
-from django.shortcuts import get_object_or_404
 
 
 class DetailListView(SingleObjectMixin, ListView):
@@ -45,3 +51,39 @@ class CategoriedListView(ListView):
         context['queries'] = queries_without_page
         context['category'] = self.category
         return context
+
+
+class HandleEmailFormView(View):
+    sender = settings.DEFAULT_FROM_EMAIL
+    receivers = settings.CONTACT_FORM_RECEIVER
+    email_template_name = None
+    subject = ""
+    form_identifier = ""
+
+    def get_email_context(self, request):
+        raise NotImplementedError()
+
+    def get_email_template(self):
+        if not self.email_template_name:
+            raise NotImplementedError("Template name is not configured!")
+        return get_template(self.email_template_name)
+
+    def send_email(self, request):
+        context = self.get_email_context(request)
+        subject = self.subject.format(**context)
+        template = self.get_email_template()
+        content = template.render(context)
+
+        msg = EmailMultiAlternatives(subject, content, self.sender, self.receivers)
+        msg.attach_alternative(content, 'text/html')
+        msg.send()
+
+    def post(self, request):
+        try:
+            self.send_email(request)
+        except Exception as e:
+            print(e)
+            messages.error(request, _("Mesajınız gönderilirken hata oluştu!"))
+        else:
+            messages.success(request, _("Mesajınız başarıyla gönderildi! Size en kısa sürede geri dönüş yapacağız"))
+        return redirect("{}#{}".format(request.META['HTTP_REFERER'], self.form_identifier))
