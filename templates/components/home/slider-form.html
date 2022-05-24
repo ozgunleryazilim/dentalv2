@@ -32,9 +32,15 @@
         <i class="far fa-phone-alt"></i>
     </div>
 
+    <div class="input-group input-light">
+        <h6 class="input-title">{% trans "Your Message" %}</h6>
+        <textarea id="message" type="text" name="message" class="form-control"
+                  placeholder="{% trans "Your Message" %}..."></textarea>
+    </div>
+
     <div class="form-group mt-3">
         <input type="checkbox" name="contactKvkk" id="InputKVKK" class="form-check-input"
-                   required data-error="{% trans 'GDPR field is required' %}">
+               required data-error="{% trans 'GDPR field is required' %}">
         <label for="InputKVKK" class="form-check-label form_label">
             {% blocktrans trimmed %}
                 Please confirm that you have shared your personal data with Dental Bosphorus within the scope of
