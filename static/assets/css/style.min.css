@@ -4997,8 +4997,8 @@ ul.sub-menu li.li-with-arrow i.fa-caret-right {
   width: 5rem;
   height: 5rem;
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 10px;
+  bottom: 80px;
   z-index: 999;
   color: #fff;
   display: none;
@@ -5027,7 +5027,7 @@ ul.sub-menu li.li-with-arrow i.fa-caret-right {
 }
 
 #whatsapp-btn {
-  bottom: 110px;
+  bottom: 140px;
   background-color: #6cf476;
   color: white;
 }

@@ -82,10 +82,10 @@
         separateDialCode: true,
         utilsScript: "{% static 'assets/js/plugins/phone.js' %}",
     }
-    if (input){
+    if (input) {
         window.intlTelInput(input, inputConf);
     }
-    if (input2){
+    if (input2) {
         window.intlTelInput(input2, inputConf);
     }
 
@@ -103,6 +103,20 @@
 {% block extra-script %}
 
 {% endblock %}
-<script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "59f64887bd8f8984ee97bbe9a7595f79e9a52fca8559bb40f1f231e2ce7f86ed830016b87bd17c49413bafad5de4202f", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+<script type="text/javascript" id="zsiqchat">var $zoho = $zoho || {};
+$zoho.salesiq = $zoho.salesiq || {
+    widgetcode: "59f64887bd8f8984ee97bbe9a7595f79e9a52fca8559bb40f1f231e2ce7f86ed830016b87bd17c49413bafad5de4202f",
+    values: {},
+    ready: function () {
+    }
+};
+var d = document;
+s = d.createElement("script");
+s.type = "text/javascript";
+s.id = "zsiqscript";
+s.defer = true;
+s.src = "https://salesiq.zoho.com/widget";
+t = d.getElementsByTagName("script")[0];
+t.parentNode.insertBefore(s, t);</script>
 </body>
 </html>
