@@ -58,6 +58,9 @@
                                   placeholder="{% trans 'Your Message' %} *"></textarea>
                     </div>
                 </div>
+
+                {% include "components/recaptcha.html" %}
+
                 <div class="col-lg-12 d-lg-flex justify-content-lg-center col-12">
                     <div class="banner-actions">
                         <button type="submit" class="btn btn-form btn-primary-color mr-0">
@@ -66,6 +69,7 @@
                     </div>
                 </div>
             </div>
+
         </form>
     </div>
 </div>

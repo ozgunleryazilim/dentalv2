@@ -1,0 +1,7 @@
+{% load recaptcha %}
+
+{% get_recaptcha_validation_active as recaptcha_active %}
+{% if recaptcha_active %}
+    {% get_recaptcha_site_key as recaptcha_site_key %}
+    <div class="g-recaptcha" data-sitekey="{{ recaptcha_site_key }}"></div>
+{% endif %}

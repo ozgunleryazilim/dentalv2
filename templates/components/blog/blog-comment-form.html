@@ -13,6 +13,8 @@
                 {{ form.email }}
             </div>
 
+            {% include "components/recaptcha.html" %}
+
             <div class="banner-actions d-flex ">
                 <button type="submit" class="btn btn-form btn-primary-color mx-auto">
                     <span>{% trans "Send" %}</span>
