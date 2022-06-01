@@ -2,6 +2,8 @@
 
 {% get_recaptcha_validation_active as recaptcha_active %}
 {% if recaptcha_active %}
+    <div class="mt-3">
     {% get_recaptcha_site_key as recaptcha_site_key %}
     <div class="g-recaptcha" data-sitekey="{{ recaptcha_site_key }}"></div>
+    </div>
 {% endif %}

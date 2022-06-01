@@ -1,3 +1,6 @@
+from django.contrib import messages
+from django.core.exceptions import ValidationError
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.translation import get_language
 from django.views.generic import TemplateView, ListView, DetailView
@@ -7,6 +10,7 @@ from parler.views import TranslatableSlugMixin, ViewUrlMixin
 
 from page.forms import BlogCommentForm
 from page.models import ServiceItem, ServiceCategory, BeforeAfterImage, BlogCategory, Blog
+from utils.recaptcha import validate_recaptcha
 from utils.views import CategoriedListView, DetailListView, HandleEmailFormView
 
 
@@ -77,6 +81,7 @@ class BlogDetailPage(TranslatableSlugMixin, FormMixin, DetailListView):
     detail_object_name = "blog"
     paginate_by = 10
     form_class = BlogCommentForm
+    form_identifier = "comment-form"
 
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
@@ -95,8 +100,23 @@ class BlogDetailPage(TranslatableSlugMixin, FormMixin, DetailListView):
         comment.save()
         return super().form_valid(form)
 
+    def recaptcha_invalid(self, request):
+        return redirect("{}#{}".format(request.META['HTTP_REFERER'], self.form_identifier))
+
     def post(self, request, *args, **kwargs):
         self.object = self.get_object(queryset=self.model.objects.all())
+
+        try:
+            validate_recaptcha(request.POST)
+        except ValidationError as exc:
+            for e in exc:
+                messages.error(request, e)
+            return self.recaptcha_invalid(request)
+        except Exception as e:
+            print(e)
+            messages.error(request, _("Mesajınız gönderilirken hata oluştu!"))
+            return self.recaptcha_invalid(request)
+
         form = self.get_form()
         if form.is_valid():
             return self.form_valid(form)

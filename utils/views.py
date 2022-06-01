@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib import messages
+from django.core.exceptions import ValidationError
 from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import redirect
 from django.template.loader import get_template
@@ -7,6 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.views import View
 from django.views.generic import ListView
 from django.views.generic.detail import SingleObjectMixin
+
+from utils.recaptcha import validate_recaptcha
 
 
 class DetailListView(SingleObjectMixin, ListView):
@@ -80,7 +83,11 @@ class HandleEmailFormView(View):
 
     def post(self, request):
         try:
+            validate_recaptcha(request.POST)
             self.send_email(request)
+        except ValidationError as exc:
+            for e in exc:
+                messages.error(request, e)
         except Exception as e:
             print(e)
             messages.error(request, _("Mesajınız gönderilirken hata oluştu!"))

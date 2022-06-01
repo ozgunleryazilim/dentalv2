@@ -1,8 +1,18 @@
 {% load i18n %}
 
-<form class="review-form" method="post">
+<form class="review-form" method="post" id="comment-form">
     {% csrf_token %}
     <h3 class="form-title ls-n-20">{% trans "Write a reply" %}</h3>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+    {% endif %}
+
     <div class="row">
         <div class="col-lg-6 mt-2">
 
