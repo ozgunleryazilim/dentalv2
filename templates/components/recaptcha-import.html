@@ -1,0 +1,6 @@
+{% load recaptcha %}
+
+{% get_recaptcha_validation_active as recaptcha_active %}
+{% if recaptcha_active %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endif %}
