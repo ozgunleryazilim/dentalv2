@@ -1,7 +1,10 @@
 import requests
 from django.conf import settings
-from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+
+
+class RecaptchaValidationError(Exception):
+    pass
 
 
 def recaptcha_check(recaptcha_response):
@@ -23,4 +26,4 @@ def validate_recaptcha(data):
     recaptcha_response_result = recaptcha_check(recaptcha_response)
 
     if not recaptcha_response_result:
-        raise ValidationError(_("Recaptcha doğrulaması başarısız"))
+        raise RecaptchaValidationError(_("Recaptcha doğrulaması başarısız"))

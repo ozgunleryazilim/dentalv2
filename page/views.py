@@ -10,7 +10,7 @@ from parler.views import TranslatableSlugMixin, ViewUrlMixin
 
 from page.forms import BlogCommentForm
 from page.models import ServiceItem, ServiceCategory, BeforeAfterImage, BlogCategory, Blog
-from utils.recaptcha import validate_recaptcha
+from utils.recaptcha import validate_recaptcha, RecaptchaValidationError
 from utils.views import CategoriedListView, DetailListView, HandleEmailFormView
 
 
@@ -108,9 +108,8 @@ class BlogDetailPage(TranslatableSlugMixin, FormMixin, DetailListView):
 
         try:
             validate_recaptcha(request.POST)
-        except ValidationError as exc:
-            for e in exc:
-                messages.error(request, e)
+        except RecaptchaValidationError as exc:
+            messages.error(request, str(exc))
             return self.recaptcha_invalid(request)
         except Exception as e:
             print(e)
