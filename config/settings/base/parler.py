@@ -1,7 +1,7 @@
-from .base import LANGUAGES, LANGUAGE_CODE
+from .base import LANGUAGES, LANGUAGE_CODE, SITE_ID
 
 PARLER_LANGUAGES = {
-    None: tuple(
+    SITE_ID: tuple(
         {'code': code}
         for code, name in LANGUAGES
     ),
