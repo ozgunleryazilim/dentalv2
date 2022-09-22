@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from parler.admin import TranslatableAdmin
+from utils.admin import OneEntityModel
+
 
 from page.models import (
     Keywords,
@@ -37,7 +39,7 @@ class HomeSliderAdmin(TranslatableAdmin):
 
 
 @admin.register(HomePageSeo)
-class HomePageSeoAdmin(TranslatableAdmin):
+class HomePageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (_("Popup Information"), {"fields": ("popup",)}),
         (_("Seo Information"), {"fields": seo_fields}),
@@ -46,7 +48,7 @@ class HomePageSeoAdmin(TranslatableAdmin):
 
 
 @admin.register(ServicesPageSeo)
-class ServicesPageSeoAdmin(TranslatableAdmin):
+class ServicesPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (
             _("Banner Information"),
@@ -123,7 +125,7 @@ class BeforeAfterImageAdmin(admin.ModelAdmin):
 
 
 @admin.register(AboutPageSeo)
-class AboutPageSeoAdmin(TranslatableAdmin):
+class AboutPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (
             _("Banner Information"),
@@ -145,7 +147,7 @@ class AboutPageSeoAdmin(TranslatableAdmin):
 
 
 @admin.register(HowItWorksPageSeo)
-class HowItWorksPageSeoAdmin(TranslatableAdmin):
+class HowItWorksPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (
             _("Banner Information"),
@@ -159,7 +161,7 @@ class HowItWorksPageSeoAdmin(TranslatableAdmin):
 
 
 @admin.register(BeforeAfterPageSeo)
-class BeforeAfterPageSeoAdmin(TranslatableAdmin):
+class BeforeAfterPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (
             _("Banner Information"),
@@ -179,7 +181,7 @@ class FrequentlyAskedQuestionAdmin(TranslatableAdmin):
 
 
 @admin.register(BlogsPageSeo)
-class BlogsPageSeoAdmin(TranslatableAdmin):
+class BlogsPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (
             _("Banner Information"),
@@ -254,7 +256,7 @@ class BlogCommentAdmin(admin.ModelAdmin):
 
 
 @admin.register(ContactPageSeo)
-class ContactPageSeoAdmin(TranslatableAdmin):
+class ContactPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (
             _("Banner Information"),
@@ -268,7 +270,7 @@ class ContactPageSeoAdmin(TranslatableAdmin):
 
 
 @admin.register(AppointmentPageSeo)
-class AppointmentPageSeoAdmin(TranslatableAdmin):
+class AppointmentPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (
             _("Banner Information"),
@@ -282,7 +284,7 @@ class AppointmentPageSeoAdmin(TranslatableAdmin):
 
 
 @admin.register(GDPRPageSeo)
-class GDPRPageSeoAdmin(TranslatableAdmin):
+class GDPRPageSeoAdmin(TranslatableAdmin, OneEntityModel):
     fieldsets = (
         (_("Content Information"), {"fields": ("content",)}),
         (
