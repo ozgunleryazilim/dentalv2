@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     # Project Apps:
     'page',
+    'popup',
 ]
 
 SITE_ID = 1

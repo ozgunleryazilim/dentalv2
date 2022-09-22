@@ -1,0 +1,70 @@
+{% load i18n %}
+<div class="modal fade popupModal" id="popupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md p-0 m-0">
+                        <div class="img" style="background-image: url('{{popup.image.url}}');">
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 py-4">
+                        <form class="form-contact" action="{% url 'handle_popup_form' %}" method="POST"
+                            id="ad-popup-form">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {% csrf_token %}
+                            <h1 class="section-title">{{popup.title|default:""}}</h1>
+
+                            <p>{{popup.subtitle|linebreaksbr}}</p>
+
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert {% if message.tags == 'error' %}alert-danger {% else %}alert-{{ message.tags }}{% endif %}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            <div class="input-box">
+                                <label for="popup-name">{% trans "Name" %} *</label>
+                                <input name="name" type="text" id="popup-name" required>
+                            </div>
+                            <div class="input-box">
+                                <label for="popup-name">{% trans "Email" %} *</label>
+                                <input name="email" type="text" id="popup-name" required>
+                            </div>
+                            <div class="input-box">
+                                <label for="popup-name">{% trans "Phone" %} *</label>
+                                <input name="phone" type="tel" id="popup-Phone" required class="appointment-phone-input">
+                            </div>
+
+                            <div class="select-box">
+                                <i class="fa fa-angle-down"></i>
+                                <label for="popup-name">{% trans "Service" %}</label>
+                                <select id="popup-service" name="service" >
+                                    <option value="">{% trans "Choose Service" %}</option>
+                                    {% for service in popup.services.all %}
+                                        <option value="{{ service.title }}">{{ service.title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="input-box input-textarea">
+                                <label for="your-message">{% trans "Your Message" %} *</label>
+                                <textarea name="message" type="text" id="your-message" required></textarea>
+                            </div>
+
+                            {% include "components/recaptcha.html" %}
+
+                            <button type="submit" class="btn btn-primary-color w-100">
+                                <span>{% trans "Send" %}</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -79,3 +79,8 @@
     {% include "components/home/contact.html" %}
 
 {% endblock %}
+
+{% block popup_modal %}
+    {% get_howitworks_seo as obj %}
+    {{ block.super }}
+{% endblock %}

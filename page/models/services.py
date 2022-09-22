@@ -8,15 +8,23 @@ from parler.utils.context import switch_language
 
 from page.models import seo_translations, SEOStarterModel
 from utils.models import TimestampStarterModel
+from popup.models import Popup
 
 
 class ServicesPageSeo(TranslatableModel, SEOStarterModel):
     translations = TranslatedFields(
-        banner_title=models.CharField(_("Title"), max_length=200, blank=True, null=True),
+        banner_title=models.CharField(
+            _("Title"), max_length=200, blank=True, null=True
+        ),
         banner_description=RichTextField(_("Description"), blank=True, null=True),
         **seo_translations
     )
-    banner_image = models.ImageField(_("Banner Image"), upload_to="services/banner", blank=True, null=True)
+    banner_image = models.ImageField(
+        _("Banner Image"), upload_to="services/banner", blank=True, null=True
+    )
+    popup = models.ForeignKey(
+        Popup, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_("Popup")
+    )
 
     class Meta:
         verbose_name = _("Service Page SEO")
@@ -51,14 +59,26 @@ class ServiceCategory(TranslatableModel, SEOStarterModel, TimestampStarterModel)
         name=models.CharField(_("Category Name"), max_length=200),
         slug=models.SlugField(_("Slug"), max_length=200),
         description=models.TextField(_("Description"), blank=True, null=True),
-        banner_title=models.CharField(_("Title"), max_length=200, blank=True, null=True),
+        banner_title=models.CharField(
+            _("Title"), max_length=200, blank=True, null=True
+        ),
         banner_description=RichTextField(_("Description"), blank=True, null=True),
         **seo_translations
     )
-    icon = models.CharField(_("Category Icon"), max_length=50,
-                            choices=ServiceCategoryIcons.choices, blank=True, null=True)
+    icon = models.CharField(
+        _("Category Icon"),
+        max_length=50,
+        choices=ServiceCategoryIcons.choices,
+        blank=True,
+        null=True,
+    )
     in_home = models.BooleanField(_("In home page services section?"), default=False)
-    banner_image = models.ImageField(_("Banner Image"), upload_to="services/banner", blank=True, null=True)
+    banner_image = models.ImageField(
+        _("Banner Image"), upload_to="services/banner", blank=True, null=True
+    )
+    popup = models.ForeignKey(
+        Popup, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_("Popup")
+    )
 
     class Meta:
         verbose_name = _("Service Category")
@@ -91,20 +111,41 @@ class ServiceItem(TranslatableModel, SEOStarterModel, TimestampStarterModel):
         TEETH_5 = "teeth-5.svg"
         TEETH_6 = "teeth-6.svg"
         TOMOGRAFI = "tomografi.svg"
+
     translations = TranslatedFields(
         banner_title=models.CharField(_("Title"), max_length=200),
-        banner_description=RichTextField(_("Banner Description"), blank=True, null=True),
+        banner_description=RichTextField(
+            _("Banner Description"), blank=True, null=True
+        ),
         home_description=RichTextField(_("Home Description"), blank=True, null=True),
         slug=models.SlugField(_("Slug"), max_length=200),
         content=RichTextUploadingField(_("Content Body"), blank=True, null=True),
         **seo_translations
     )
-    category = models.ForeignKey(ServiceCategory, blank=True, null=True, on_delete=models.SET_NULL,
-                                 verbose_name=_("Kategori"))
-    icon = models.CharField(_("Category Icon"), max_length=50, choices=ServiceIcons.choices, blank=True, null=True)
-    banner_image = models.ImageField(_("Banner Image"), upload_to="services/banner", blank=True, null=True)
-    image = models.ImageField(_("Service Image"), upload_to="services", blank=True, null=True)
+    category = models.ForeignKey(
+        ServiceCategory,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        verbose_name=_("Kategori"),
+    )
+    icon = models.CharField(
+        _("Category Icon"),
+        max_length=50,
+        choices=ServiceIcons.choices,
+        blank=True,
+        null=True,
+    )
+    banner_image = models.ImageField(
+        _("Banner Image"), upload_to="services/banner", blank=True, null=True
+    )
+    image = models.ImageField(
+        _("Service Image"), upload_to="services", blank=True, null=True
+    )
     in_home = models.BooleanField(_("In home page services section?"), default=False)
+    popup = models.ForeignKey(
+        Popup, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_("Popup")
+    )
 
     class Meta:
         verbose_name = _("Service Item")
@@ -115,4 +156,4 @@ class ServiceItem(TranslatableModel, SEOStarterModel, TimestampStarterModel):
 
     def get_absolute_url(self):
         with switch_language(self):
-            return reverse('services_detail', args=(self.slug,))
+            return reverse("services_detail", args=(self.slug,))

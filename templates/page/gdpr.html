@@ -19,3 +19,8 @@
 
 
 {% endblock %}
+
+{% block popup_modal %}
+    {% get_gdpr_obj as obj %}
+    {{ block.super }}
+{% endblock %}

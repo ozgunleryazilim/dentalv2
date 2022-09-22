@@ -7,6 +7,7 @@ from parler.utils.context import switch_language
 
 from page.models import seo_translations, SEOStarterModel
 from utils.models import TimestampStarterModel
+from popup.models import Popup
 
 
 class BlogsPageSeo(TranslatableModel, SEOStarterModel):
@@ -16,6 +17,9 @@ class BlogsPageSeo(TranslatableModel, SEOStarterModel):
         **seo_translations
     )
     banner_image = models.ImageField(_("Banner Image"), upload_to="blogs/banner", blank=True, null=True)
+    popup = models.ForeignKey(
+        Popup, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_("Popup")
+    )
 
     class Meta:
         verbose_name = _("Blogs Page SEO")

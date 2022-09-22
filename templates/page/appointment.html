@@ -69,3 +69,8 @@
 
 
 {% endblock %}
+
+{% block popup_modal %}
+    {% get_appointment_obj as obj %}
+    {{ block.super }}
+{% endblock %}

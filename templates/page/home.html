@@ -23,3 +23,8 @@
     {% include "components/home/blog.html" %}
 
 {% endblock %}
+
+{% block popup_modal %}
+    {% get_home_obj as obj %}
+    {{ block.super }}
+{% endblock %}

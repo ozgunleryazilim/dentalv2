@@ -38,3 +38,15 @@
     {% include "components/home/contact.html" %}
 
 {% endblock %}
+
+{% block popup_modal %}
+    {% if category %}
+        {% with obj=category  %}
+            {{ block.super }}
+        {% endwith %} 
+    {% else %}
+        {% get_service_category_seo_obj as obj %}
+        {{ block.super }}
+    {% endif %}
+    
+{% endblock %}

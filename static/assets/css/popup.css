@@ -1,0 +1,179 @@
+.popupModal .modal-body {
+  padding: 0;
+}
+.popupModal .close span {
+  font-size: 40px;
+}
+.popupModal .modal-dialog {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0;
+}
+.popupModal .modal-dialog .row {
+  margin: 0;
+  padding: 0;
+}
+.popupModal .modal-dialog .img {
+  overflow: hidden;
+  width: 100%;
+  background-position-x: center;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.popupModal .modal-dialog .section-title {
+  font-size: 40px;
+  margin-bottom: 35px;
+}
+.popupModal .modal-dialog form {
+  width: 100%;
+  padding: 10px;
+}
+.popupModal .modal-dialog form > .section-title {
+  font-size: 40px;
+  color: #1e1e1e;
+  margin-bottom: 35px;
+}
+.popupModal .modal-dialog form .input-box {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  margin-bottom: 35px;
+  margin-top: 35px;
+  transition: all 0.3s linear;
+  border-bottom: 2px solid rgba(30, 30, 30, 0.3);
+}
+.popupModal .modal-dialog form .input-box label {
+  position: absolute;
+  top: -10px;
+  font-size: 14px;
+  left: 0;
+  transform: translateY(-50%);
+  color: #1e1e1e;
+  transition: all 0.3s linear;
+}
+.popupModal .modal-dialog form .input-box input, .popupModal .modal-dialog form .input-box textarea {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+.popupModal .modal-dialog form .input-box.input-textarea {
+  height: 100px;
+}
+.popupModal .modal-dialog form .input-box.input-textarea textarea {
+  height: 100px;
+}
+.popupModal .modal-dialog form .input-box:hover, .popupModal .modal-dialog form .input-box:focus {
+  border-bottom-color: #1e1e1e;
+}
+.popupModal .modal-dialog form > .select-box {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  transition: all 0.3s linear;
+  border-bottom: 2px solid rgba(30, 30, 30, 0.3);
+}
+.popupModal .modal-dialog form > .select-box > .fa {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1e1e1e;
+  font-size: 20px;
+  line-height: 10px;
+}
+.popupModal .modal-dialog form > .select-box label {
+  position: absolute;
+  top: -10px;
+  font-size: 14px;
+  left: 0;
+  transform: translateY(-50%);
+  color: #7f7f7f;
+  transition: all 0.3s linear;
+}
+.popupModal .modal-dialog form > .select-box > select {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e1e1e;
+  padding-right: 20px;
+}
+.popupModal .modal-dialog form > .select-box > select > option {
+  line-height: 2;
+  background-color: #ffffff;
+}
+.popupModal .modal-dialog form > .select-box:hover {
+  border-bottom-color: #1e1e1e;
+}
+.popupModal .modal-dialog .select-box {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  margin-bottom: 25px;
+  transition: all 0.3s linear;
+  border-bottom: 2px solid rgba(30, 30, 30, 0.3);
+}
+.popupModal .modal-dialog .select-box > .fa {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1e1e1e;
+  font-size: 20px;
+  line-height: 10px;
+}
+.popupModal .modal-dialog .select-box > select {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e1e1e;
+  padding-right: 20px;
+}
+.popupModal .modal-dialog .select-box > select > option {
+  line-height: 2;
+  background-color: #ffffff;
+}
+.popupModal .modal-dialog .select-box:hover {
+  border-bottom-color: #1e1e1e;
+}
+
+@media (max-width: 768px) {
+  .popupModal .modal-dialog {
+    height: 100vh;
+    max-width: 400px;
+    width: 80%;
+    margin: auto;
+  }
+  .popupModal .modal-dialog .img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/*# sourceMappingURL=popup.css.map */

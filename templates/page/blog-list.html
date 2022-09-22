@@ -55,3 +55,9 @@
 
 
 {% endblock %}
+
+{% block popup_modal %}
+    {% with obj=category %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}

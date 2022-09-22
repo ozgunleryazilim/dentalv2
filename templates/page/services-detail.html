@@ -59,3 +59,9 @@
     {% include "components/home/contact.html" %}
 
 {% endblock %}
+
+{% block popup_modal %}
+    {% with obj=service %}
+    {{ block.super }}
+    {% endwith %}
+{% endblock %}
