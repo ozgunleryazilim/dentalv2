@@ -13,3 +13,16 @@
 .gallery-image{
     border-radius: 10px !important;
 }
+
+#whatsapp-btn{
+	width: 180px;
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+}
+
+#whatsapp-btn span{
+	font-weight: 600;
+    flex-grow: 1;
+}
